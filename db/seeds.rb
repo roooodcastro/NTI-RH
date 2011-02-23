@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+Conhecimento.create({ :nome => "Java", :dominio => "Desenvolvimento" })
+Conhecimento.create({ :nome => "Ruby", :dominio => "Desenvolvimento" })
+Conhecimento.create({ :nome => "C++", :dominio => "Desenvolvimento" })
+Conhecimento.create({ :nome => "Delphi", :dominio => "Desenvolvimento" })
