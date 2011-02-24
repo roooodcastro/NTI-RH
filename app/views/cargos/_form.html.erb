@@ -1,0 +1,45 @@
+<%= form_for(@cargo) do |f| %>
+  <% if @cargo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cargo.errors.count, "error") %> prohibited this cargo from being saved:</h2>
+
+      <ul>
+      <% @cargo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :pre_requisitos %><br />
+    <%= f.text_field :pre_requisitos %>
+  </div>
+  <div class="field">
+    <%= f.label :salario_piso %><br />
+    <%= f.text_field :salario_piso %>
+  </div>
+  <div class="field">
+    <%= f.label :salario_teto %><br />
+    <%= f.text_field :salario_teto %>
+  </div>
+  <div class="field">
+    <%= f.label :tempo_minimo %><br />
+    <%= f.text_field :tempo_minimo %>
+  </div>
+  <div class="field">
+    <%= f.label :tempo_maximo %><br />
+    <%= f.text_field :tempo_maximo %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

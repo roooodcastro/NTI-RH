@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  pre_requisitos: MyString
+  slario_piso: 1.5
+  salario_teto: 1.5
+  tempo_minimo: MyString
+  tempo_maximo: MyString
+  descricao: MyString
+
+two:
+  nome: MyString
+  pre_requisitos: MyString
+  slario_piso: 1.5
+  salario_teto: 1.5
+  tempo_minimo: MyString
+  tempo_maximo: MyString
+  descricao: MyString

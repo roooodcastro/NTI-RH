@@ -1,5 +1,4 @@
 class Competencia < ActiveRecord::Base
-
-  has_one :conhecimento
   belongs_to :pessoa
+  belongs_to :conhecimento
 end

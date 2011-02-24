@@ -1,4 +1,16 @@
 Rh::Application.routes.draw do
+  resources :competencias, :except => :index
+
+  resources :participacao_em_projetos
+
+  resources :observacoes
+
+  resources :projetos
+
+  resources :vinculos
+
+  resources :cargos
+
   resources :conhecimentos
 
   resources :pessoas
@@ -52,7 +64,7 @@ Rh::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+   root :to => "application#index"
 
   # See how all your routes lay out with "rake routes"
 

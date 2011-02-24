@@ -10,10 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223210944) do
+ActiveRecord::Schema.define(:version => 20110224185827) do
+
+  create_table "cargos", :force => true do |t|
+    t.string   "nome"
+    t.string   "pre_requisitos"
+    t.float    "salario_piso"
+    t.float    "salario_teto"
+    t.string   "tempo_minimo"
+    t.string   "tempo_maximo"
+    t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "competencias", :force => true do |t|
     t.integer  "grau"
+    t.integer  "pessoa_id"
+    t.integer  "conhecimento_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20110223210944) do
     t.string   "cpf",        :limit => 11
     t.string   "celular",    :limit => 10
     t.string   "endereco"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projetos", :force => true do |t|
+    t.string   "nome"
+    t.date     "data_inicial"
+    t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

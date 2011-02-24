@@ -1,0 +1,27 @@
+<h1>Listing competencias</h1>
+
+<table>
+  <tr>
+    <th>Grau</th>
+    <th>Pessoa</th>
+    <th>Conhecimento</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @competencias.each do |competencia| %>
+  <tr>
+    <td><%= competencia.grau %></td>
+    <td><%= competencia.pessoa_id %></td>
+    <td><%= competencia.conhecimento_id %></td>
+    <td><%= link_to 'Show', competencia %></td>
+    <td><%= link_to 'Edit', edit_competencia_path(competencia) %></td>
+    <td><%= link_to 'Destroy', competencia, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Competencia', new_competencia_path %>

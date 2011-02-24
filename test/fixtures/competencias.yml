@@ -2,6 +2,10 @@
 
 one:
   grau: 1
+  pessoa_id: 1
+  conhecimento_id: 1
 
 two:
   grau: 1
+  pessoa_id: 1
+  conhecimento_id: 1

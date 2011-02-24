@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @cargo.nome %>
+</p>
+
+<p>
+  <b>Pre requisitos:</b>
+  <%= @cargo.pre_requisitos %>
+</p>
+
+<p>
+  <b>Slario piso:</b>
+  <%= @cargo.salario_piso %>
+</p>
+
+<p>
+  <b>Salario teto:</b>
+  <%= @cargo.salario_teto %>
+</p>
+
+<p>
+  <b>Tempo minimo:</b>
+  <%= @cargo.tempo_minimo %>
+</p>
+
+<p>
+  <b>Tempo maximo:</b>
+  <%= @cargo.tempo_maximo %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @cargo.descricao %>
+</p>
+
+
+<%= link_to 'Edit', edit_cargo_path(@cargo) %> |
+<%= link_to 'Back', cargos_path %>

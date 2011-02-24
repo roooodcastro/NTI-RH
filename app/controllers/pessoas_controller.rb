@@ -13,7 +13,7 @@ class PessoasController < ApplicationController
   # GET /pessoas/1
   # GET /pessoas/1.xml
   def show
-    @pessoa = Pessoa.find(params[:id])
+    @pessoa = Pessoa.includes(:competencias => :conhecimento).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,6 @@ class PessoasController < ApplicationController
   # GET /pessoas/new.xml
   def new
     @pessoa = Pessoa.new
-    @conhecimentos = Conhecimento.all
 
     respond_to do |format|
       format.html # new.html.erb

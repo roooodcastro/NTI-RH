@@ -21,5 +21,25 @@
 </p>
 
 
-<%= link_to 'Edit', edit_pessoa_path(@pessoa) %> |
-<%= link_to 'Back', pessoas_path %>
+<h1>Listing competencias</h1>
+
+<table>
+  <tr>
+    <th>Grau</th>
+    <th>Conhecimento</th>
+  </tr>
+
+  <% @pessoa.competencias.each do |competencia| %>
+    <tr>
+      <td><%= competencia.grau %></td>
+      <td><%= competencia.conhecimento.nome %></td>
+      <td><%= link_to 'Detalhes', competencia %></td>
+      <td><%= link_to 'Remover', competencia, :confirm => 'Tem certeza?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Adicionar competência', new_competencia_path(:pessoa_id => @pessoa.id) %>
+
+<%= link_to 'Editar', edit_pessoa_path(@pessoa) %> |
+<%= link_to 'Voltar', pessoas_path %>

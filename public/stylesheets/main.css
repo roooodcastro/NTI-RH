@@ -1,0 +1,160 @@
+/* 
+    Document   : main
+    Created on : 24/02/2011, 16:09:50
+    Author     : rodcastro
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    background-color: #F2CA89;
+    color: #333333;
+    text-align: center;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size:   13px;
+    line-height: 20px;
+    margin: 0px;
+}
+
+table, tr, td {
+    margin: 0px;
+    padding: 0px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+a {
+    color: #000;
+}
+
+a:visited {
+    color: #666;
+}
+
+a:hover {
+    color: #fff; background-color:#000;
+}
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+#notice {
+    color: green;
+}
+
+.field_with_errors {
+    background-color: red;
+    display: table;
+}
+
+#error_explanation {
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+.template {
+    width: 900px;
+}
+
+.template #header {
+    background-color: White;
+    border: 1px solid #FF964D;
+    border-top: none;
+    -moz-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 10px 10px 0px;
+    -webkit-border-radius: 0px 0px 10px 10px;
+    margin-bottom: 6px;
+    height: 150px;
+}
+
+.template #main_menu {
+    font-size: 14px;
+    color: #333333;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    background-color: #A8BF6A;
+    line-height: 28px;
+    border: 1px solid #7DB24F;
+    height: 30px;
+    text-align: center;
+    padding-left: 150px;
+    margin-bottom: 6px;
+    background: #A8BF6A; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#000)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */
+
+}
+
+.template #main_menu ul li a {
+    text-decoration: none;
+    border: 1px solid #A8BF6A;
+    display: block;
+    color: #333333;
+}
+
+.template #main_menu ul li a:hover {
+    background-color: #CCCB93;
+    -moz-border-radius: 12px 12px 0px 0px;
+    border-radius: 12px 12px 0px 0px;
+    -webkit-border-radius: 12px 12px 0px 0px;
+    border: 1px solid #CCCB93;
+    color: #666666;
+}
+
+.template #main_menu ul {
+    list-style: none;
+    padding-left: 150px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.template #main_menu li {
+    float: left;
+    width: 150px;
+}
+
+.template #content {
+    border: 1px solid #FF964D;
+    width: 900px;
+    background-color: #EEEEEE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
