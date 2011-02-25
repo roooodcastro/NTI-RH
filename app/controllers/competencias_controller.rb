@@ -44,10 +44,11 @@ class CompetenciasController < ApplicationController
   # POST /competencias.xml
   def create
     @competencia = Competencia.new(params[:competencia])
+    pessoa = Pessoa.find_by_id @competencia.pessoa_id
 
     respond_to do |format|
       if @competencia.save
-        format.html { redirect_to(@competencia, :notice => 'Competência adicionada com sucesso.') }
+        format.html { redirect_to(pessoa, :notice => 'Competência adicionada com sucesso.') }
         format.xml  { render :xml => @competencia, :status => :created, :location => @competencia }
       else
         format.html { render :action => "new" }
@@ -76,10 +77,11 @@ class CompetenciasController < ApplicationController
   # DELETE /competencias/1.xml
   def destroy
     @competencia = Competencia.find(params[:id])
+    pessoa = Pessoa.find_by_id @competencia.pessoa_id
     @competencia.destroy
 
     respond_to do |format|
-      format.html { redirect_to(competencias_url) }
+      format.html { redirect_to(pessoa) }
       format.xml  { head :ok }
     end
   end

@@ -1,12 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-Pessoa 1:
+Pessoa1:
+  id: 1
   nome: José
   cpf: 12345678901
   celular: 8456-9543
   endereco: Morador de rua
 
-Pessoa 2:
+Pessoa2:
+  id: 2
   nome: Alejandro
   cpf: 10987654321
   celular: 9452-1545

@@ -17,6 +17,10 @@ root {
 
 body {
     background-color: #F2CA89;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF964D', endColorstr='#FFAF79'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF964D), to(#FFAF79)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #FF964D,  #FFAF79); /* for firefox 3.6+ */
+    background-attachment: fixed;
     color: #333333;
     text-align: center;
     font-family: verdana, arial, helvetica, sans-serif;
@@ -98,6 +102,13 @@ div.field, div.actions {
     -webkit-border-radius: 0px 0px 10px 10px;
     margin-bottom: 6px;
     height: 150px;
+    line-height: 100px;
+}
+
+.template #header h1 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 48px;
 }
 
 .template #main_menu {
@@ -111,7 +122,7 @@ div.field, div.actions {
     border: 1px solid #7DB24F;
     height: 30px;
     text-align: center;
-    padding-left: 150px;
+    padding-left: 120px;
     margin-bottom: 6px;
     background: #A8BF6A; /* for non-css3 browsers */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2D5A9', endColorstr='#F2CA89'); /* for IE */
@@ -122,7 +133,7 @@ div.field, div.actions {
 
 .template #main_menu ul li a {
     text-decoration: none;
-    border: 1px solid #A8BF6A;
+    border: 0px solid #A8BF6A;
     display: block;
     color: #333333;
 }
@@ -138,14 +149,12 @@ div.field, div.actions {
 
 .template #main_menu ul {
     list-style: none;
-    padding-left: 150px;
     margin: 0px;
-    padding: 0px;
 }
 
 .template #main_menu li {
     float: left;
-    width: 150px;
+    width: 120px;
 }
 
 .template #content {
@@ -157,4 +166,37 @@ div.field, div.actions {
     -moz-border-radius: 8px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
+    min-height: 300px;
+}
+
+.pessoas_dados {
+    text-align: left;
+    border: 1px solid #FF964D;
+    width: 600px;
+    background-color: #E0E0E0;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 30px;
+}
+
+.pessoas_dados ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.pessoas_dados li {
+    background-color: #E0E0E0;
+    padding-left: 10px;
+}
+
+.pessoas_dados li:hover {
+    background-color: #DADADA;
+}
+
+.pessoas_competencias {
+    text-align: left;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }

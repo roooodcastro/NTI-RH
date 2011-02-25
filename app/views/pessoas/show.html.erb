@@ -1,45 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nome:</b>
-  <%= @pessoa.nome %>
-</p>
+<h1><%= "Perfil de #{@pessoa.nome}" %></h1>
 
-<p>
-  <b>Cpf:</b>
-  <%= @pessoa.cpf %>
-</p>
+<div class="pessoas_dados">
+  <ul>
+    <li>
+      <b>Nome:</b>
+      <%= @pessoa.nome %><br/>
+    </li>
+    <li>
+      <b>CPF:</b>
+      <%= @pessoa.cpf %><br/>
+    </li>
+    <li>
+      <b>Celular:</b>
+      <%= @pessoa.celular %><br/>
+    </li>
+    <li>
+      <b>Endereco:</b>
+      <%= @pessoa.endereco %><br/>
+    </li>
+  </ul>
 
-<p>
-  <b>Celular:</b>
-  <%= @pessoa.celular %>
-</p>
-
-<p>
-  <b>Endereco:</b>
-  <%= @pessoa.endereco %>
-</p>
 
 
-<h1>Listing competencias</h1>
-
-<table>
-  <tr>
-    <th>Grau</th>
-    <th>Conhecimento</th>
-  </tr>
-
-  <% @pessoa.competencias.each do |competencia| %>
+</div>
+<div>
+  <h3>Competências:</h3>
+  <table>
     <tr>
-      <td><%= competencia.grau %></td>
-      <td><%= competencia.conhecimento.nome %></td>
-      <td><%= link_to 'Detalhes', competencia %></td>
-      <td><%= link_to 'Remover', competencia, :confirm => 'Tem certeza?', :method => :delete %></td>
+      <th>Grau</th>
+      <th>Conhecimento</th>
     </tr>
-  <% end %>
-</table>
 
-<%= link_to 'Adicionar competência', new_competencia_path(:pessoa_id => @pessoa.id) %>
+    <% @pessoa.competencias.each do |competencia| %>
+      <tr>
+        <td><%= competencia.grau %></td>
+        <td><%= competencia.conhecimento.nome %></td>
+        <td><%= link_to 'Remover', competencia, :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to 'Adicionar competência', new_competencia_path(:pessoa_id => @pessoa.id) %>
+</div>
+
+
+
 
 <%= link_to 'Editar', edit_pessoa_path(@pessoa) %> |
 <%= link_to 'Voltar', pessoas_path %>

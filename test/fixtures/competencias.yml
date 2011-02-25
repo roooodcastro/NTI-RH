@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  grau: 1
+JavaJosé:
+  id: 1
+  grau: 3
   pessoa_id: 1
   conhecimento_id: 1
 
-two:
-  grau: 1
-  pessoa_id: 1
-  conhecimento_id: 1
+DelphiJosé:
+  id: 2
+  grau: 2
+  pessoa_id: 2
+  conhecimento_id: 2

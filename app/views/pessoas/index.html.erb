@@ -13,13 +13,12 @@
 
 <% @pessoas.each do |pessoa| %>
   <tr>
-    <td><%= pessoa.nome %></td>
+    <td><%= link_to pessoa.nome, pessoa %></td>
     <td><%= pessoa.cpf %></td>
     <td><%= pessoa.celular %></td>
     <td><%= pessoa.endereco %></td>
-    <td><%= link_to 'Show', pessoa %></td>
-    <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
-    <td><%= link_to 'Destroy', pessoa, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_pessoa_path(pessoa), :id => "edit_pessoa_#{pessoa.id}" %></td>
+    <td><%= link_to 'Destroy', pessoa, :confirm => 'Are you sure?', :method => :delete, :id => "destroy_pessoa_#{pessoa.id}" %></td>
   </tr>
 <% end %>
 </table>

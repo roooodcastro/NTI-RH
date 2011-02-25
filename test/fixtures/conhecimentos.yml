@@ -1,9 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  nome: MyString
-  dominio: MyString
+Delphi:
+  id: 1
+  nome: Delphi
+  dominio: Desenvolvimento
 
-two:
-  nome: MyString
-  dominio: MyString
+Java:
+  id: 2
+  nome: Java
+  dominio: Desenvolvimento
