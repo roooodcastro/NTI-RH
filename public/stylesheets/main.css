@@ -41,15 +41,12 @@ pre {
 }
 
 a {
-    color: #000;
-}
-
-a:visited {
-    color: #666;
+    color: #333333;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #fff; background-color:#000;
+    color: #666666;
 }
 
 div.field, div.actions {
@@ -167,6 +164,52 @@ div.field, div.actions {
     border-radius: 8px;
     -webkit-border-radius: 8px;
     min-height: 300px;
+}
+
+.main_menu_li {
+    text-decoration: none;
+    display: block;
+    color: #333333;
+    background-color: #CCCB93;
+    -moz-border-radius: 12px 12px 0px 0px;
+    border-radius: 12px 12px 0px 0px;
+    -webkit-border-radius: 12px 12px 0px 0px;
+    line-height: 30px;
+    color: #666666;
+    width: 120px;
+}
+
+.main_menu_drop {
+    position: absolute;
+    background-color: #CCCB93;
+    background-color: rgba(204, 203, 147, 0.9);
+    width: 118px;
+    border: 1px solid #CCCB93;
+    -moz-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+    -webkit-border-radius: 0px 0px 4px 4px;
+}
+
+.main_menu_drop ul {
+    list-style: none;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.main_menu_drop ul li {
+    padding-left: 5px;
+    line-height: 28px;
+    height: 28px;
+}
+
+.main_menu_drop ul li a {
+    display:block;
+}
+
+.main_menu_drop ul li:hover {
+    background-color: rgba(224, 223, 167, 0.9);
 }
 
 .pessoas_dados {

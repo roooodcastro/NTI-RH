@@ -1,6 +1,8 @@
 require 'test_helper'
 
-class CompetenciaTest < ActiveSupport::TestCase
+class PessoaTest < ActionDispatch::IntegrationTest
+  fixtures :all
+
   # Replace this with your real tests.
   test "the truth" do
     assert true

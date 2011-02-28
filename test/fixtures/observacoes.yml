@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  data: 2011-02-24
-  descricao: MyString
-
-two:
-  data: 2011-02-24
-  descricao: MyString
