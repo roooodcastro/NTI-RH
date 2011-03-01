@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<%= form_for @user, :url => { :action => "do_login" } do |f| %>
+
+    <div class="field">
+      <%= f.label "Email:" %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label "Senha:" %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>

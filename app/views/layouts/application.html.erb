@@ -6,73 +6,28 @@
     <%= javascript_include_tag :defaults, "jquery" %>
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js" %>
     <%= csrf_meta_tag %>
-
-    <script type = "text/javascript" >
-      $(document).ready(function() {
-        $(".main_menu_drop").hide();
-        $("#pessoas_drop, #pessoas_item").mouseenter(function() {
-          menuDropEnter("#pessoas_item", "#pessoas_drop");
-        });
-        $("#pessoas_item, #pessoas_drop").mouseleave(function() {
-          menuDropLeave("#pessoas_item", "#pessoas_drop");
-        });
-      });
-
-      function menuDropEnter(menuItem, dropContainer) {
-        var offset = $(menuItem).offset();
-        $(dropContainer).show(200);
-        $(dropContainer).css("top", offset.top + 28);
-        $(dropContainer).css("left", offset.left);
-        $(menuItem).toggleClass("main_menu_li", true);
-      }
-      
-      function menuDropLeave(menuItem, dropContainer) {
-        $(dropContainer).delay(200).hide(200);
-        $(menuItem).toggleClass("main_menu_li", false);
-      }
-    </script>
   </head>
   <body>
     <center>
       <div class="template">
-        <div id="header">
+        <div id="header" class="header">
           <h1>Recursos Humanos NTI</h1>
         </div>
         <div id="main_menu">
-          <ul>
-            <li>
-              <%= link_to "Página Inicial", root_path %>
-            </li>
-            <li id="pessoas_item">
-              <%= link_to "Pessoas", "#" %>
-            </li>
-            <li>
-              <%= link_to "Projetos", projetos_path %>
-            </li>
-            <li>
-              <%= link_to "Cargos", cargos_path %>
-            </li>
-            <li>
-              <%= link_to "Logout", root_path %>
-            </li>
-          </ul>
+          <%= render 'layouts/menu' %>
         </div>
-        <div id="content">
+        <div id="content" class="content">
+          <div class="messages">
+            <% if notice %>
+              <p class="message notice"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="message alert"><%= alert %></p>
+            <% end %>
+          </div>
           <%= yield %>
         </div>
       </div>
     </center>
-
-    <div id="pessoas_drop" class="main_menu_drop">
-      <ul>
-        <li>
-          <%= link_to "Listar pessoas", pessoas_path %>
-        </li>
-        <li>
-          <%= link_to "Nova pessoa", new_pessoa_path %>
-        </li>
-      </ul>
-
-    </div>
   </body>
 </html>

@@ -53,8 +53,26 @@ div.field, div.actions {
     margin-bottom: 10px;
 }
 
-#notice {
-    color: green;
+.messages {
+    width: 90%;
+}
+
+.messages .message {
+    border: 2px solid;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+}
+
+.messages .notice {
+    border-color: #008800;
+    background-color: #AAFFBB;
+
+}
+
+.messages .alert {
+    border-color: #D12F19;
+    background-color: #FBC2C4;
 }
 
 .field_with_errors {
@@ -90,7 +108,7 @@ div.field, div.actions {
     width: 900px;
 }
 
-.template #header {
+.header {
     background-color: White;
     border: 1px solid #FF964D;
     border-top: none;
@@ -98,44 +116,49 @@ div.field, div.actions {
     border-radius: 0px 10px 10px 0px;
     -webkit-border-radius: 0px 0px 10px 10px;
     margin-bottom: 6px;
-    height: 150px;
-    line-height: 100px;
+    height: 120px;
 }
 
-.template #header h1 {
+.header h1 {
     margin: 0px;
     padding: 0px;
-    font-size: 48px;
+    font-size: 32px;
 }
 
-.template #main_menu {
-    font-size: 14px;
-    color: #333333;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    background-color: #A8BF6A;
-    line-height: 28px;
-    border: 1px solid #7DB24F;
+.menu {
     height: 30px;
-    text-align: center;
-    padding-left: 120px;
-    margin-bottom: 6px;
-    background: #A8BF6A; /* for non-css3 browsers */
+    background-color: #F2CA89;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2D5A9', endColorstr='#F2CA89'); /* for IE */
     background: -webkit-gradient(linear, left top, left bottom, from(#F2D5A9), to(#F2CA89)); /* for webkit browsers */
     background: -moz-linear-gradient(top,  #F2D5A9,  #F2CA89); /* for firefox 3.6+ */
-
+    list-style-type: none;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    font-size: 14px;
+    margin: 0px;
+    margin-bottom: 6px;
+    padding: 0px;
+    padding-left: 50px;
 }
 
-.template #main_menu ul li a {
-    text-decoration: none;
-    border: 0px solid #A8BF6A;
+.menu li {
     display: block;
-    color: #333333;
+    float: left;
+    width: 130px;
 }
 
-.template #main_menu ul li a:hover {
+.menu li a {
+    height: 28px;
+    line-height: 28px;
+    color: #333333;
+    text-decoration: none;
+    display: block;
+    border: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.0);
+}
+
+.menu li a:hover {
     background-color: #CCCB93;
     -moz-border-radius: 12px 12px 0px 0px;
     border-radius: 12px 12px 0px 0px;
@@ -144,53 +167,29 @@ div.field, div.actions {
     color: #666666;
 }
 
-.template #main_menu ul {
-    list-style: none;
-    margin: 0px;
-}
-
-.template #main_menu li {
-    float: left;
-    width: 120px;
-}
-
-.template #content {
-    border: 1px solid #FF964D;
-    width: 900px;
-    background-color: #EEEEEE;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    min-height: 300px;
-}
-
-.main_menu_li {
-    text-decoration: none;
-    display: block;
-    color: #333333;
+.menu_hover {
     background-color: #CCCB93;
     -moz-border-radius: 12px 12px 0px 0px;
     border-radius: 12px 12px 0px 0px;
     -webkit-border-radius: 12px 12px 0px 0px;
-    line-height: 30px;
     color: #666666;
-    width: 120px;
 }
 
-.main_menu_drop {
+.menu li a.current{
+    color: #FFF;
+    background: #FFF url("images/current-bg.gif") top left repeat-x;
+    padding: 5px 15px 0;
+}
+
+.menu_drop {
     position: absolute;
     background-color: #CCCB93;
     background-color: rgba(204, 203, 147, 0.9);
-    width: 118px;
+    width: 160px;
     border: 1px solid #CCCB93;
-    -moz-border-radius: 0px 0px 4px 4px;
-    border-radius: 0px 0px 4px 4px;
-    -webkit-border-radius: 0px 0px 4px 4px;
-}
-
-.main_menu_drop ul {
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
     list-style: none;
     text-align: left;
     padding: 0px;
@@ -198,18 +197,30 @@ div.field, div.actions {
     padding-top: 5px;
 }
 
-.main_menu_drop ul li {
+.menu_drop li {
     padding-left: 5px;
     line-height: 28px;
     height: 28px;
 }
 
-.main_menu_drop ul li a {
+.menu_drop li a {
     display:block;
 }
 
-.main_menu_drop ul li:hover {
+.menu_drop li:hover {
     background-color: rgba(224, 223, 167, 0.9);
+}
+
+.content {
+    border: 1px solid #FF964D;
+    width: 900px;
+    background-color: #EEEEEE;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    min-height: 300px;
 }
 
 .pessoas_dados {
