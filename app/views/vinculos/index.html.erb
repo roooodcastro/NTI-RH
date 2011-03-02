@@ -1,0 +1,35 @@
+<h1>Listing vinculos</h1>
+
+<table>
+  <tr>
+    <th>Pessoa</th>
+    <th>Dataentrada</th>
+    <th>Datasaida</th>
+    <th>Salario</th>
+    <th>Banco</th>
+    <th>Agencia</th>
+    <th>Conta</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vinculos.each do |vinculo| %>
+  <tr>
+    <td><%= vinculo.pessoa_id %></td>
+    <td><%= vinculo.dataEntrada %></td>
+    <td><%= vinculo.dataSaida %></td>
+    <td><%= vinculo.salario %></td>
+    <td><%= vinculo.banco %></td>
+    <td><%= vinculo.agencia %></td>
+    <td><%= vinculo.conta %></td>
+    <td><%= link_to 'Show', vinculo %></td>
+    <td><%= link_to 'Edit', edit_vinculo_path(vinculo) %></td>
+    <td><%= link_to 'Destroy', vinculo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vinculo', new_vinculo_path %>

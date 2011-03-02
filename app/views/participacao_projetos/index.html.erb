@@ -1,0 +1,29 @@
+<h1>Listing participacao_projetos</h1>
+
+<table>
+  <tr>
+    <th>Datainicio</th>
+    <th>Datatermino</th>
+    <th>Vinculo</th>
+    <th>Cargo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @participacao_projetos.each do |participacao_projeto| %>
+  <tr>
+    <td><%= participacao_projeto.dataInicio %></td>
+    <td><%= participacao_projeto.dataTermino %></td>
+    <td><%= participacao_projeto.vinculo_id %></td>
+    <td><%= participacao_projeto.cargo_id %></td>
+    <td><%= link_to 'Show', participacao_projeto %></td>
+    <td><%= link_to 'Edit', edit_participacao_projeto_path(participacao_projeto) %></td>
+    <td><%= link_to 'Destroy', participacao_projeto, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Participacao projeto', new_participacao_projeto_path %>

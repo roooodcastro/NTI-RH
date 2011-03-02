@@ -1,0 +1,33 @@
+<%= form_for(@participacao_projeto) do |f| %>
+  <% if @participacao_projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participacao_projeto.errors.count, "error") %> prohibited this participacao_projeto from being saved:</h2>
+
+      <ul>
+      <% @participacao_projeto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dataInicio %><br />
+    <%= f.date_select :dataInicio %>
+  </div>
+  <div class="field">
+    <%= f.label :dataTermino %><br />
+    <%= f.date_select :dataTermino %>
+  </div>
+  <div class="field">
+    <%= f.label :vinculo_id %><br />
+    <%= f.text_field :vinculo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo_id %><br />
+    <%= f.text_field :cargo_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

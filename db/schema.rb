@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110301183615) do
+ActiveRecord::Schema.define(:version => 20110302184752) do
 
   create_table "cargos", :force => true do |t|
     t.string   "nome"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20110301183615) do
     t.string   "tempo_minimo"
     t.string   "tempo_maximo"
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comentarios", :force => true do |t|
+    t.integer  "autor_id"
+    t.text     "texto"
+    t.integer  "destinatario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +43,15 @@ ActiveRecord::Schema.define(:version => 20110301183615) do
   create_table "conhecimentos", :force => true do |t|
     t.string   "nome"
     t.string   "dominio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participacao_projetos", :force => true do |t|
+    t.date     "dataInicio"
+    t.date     "dataTermino"
+    t.integer  "vinculo_id"
+    t.integer  "cargo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,6 +87,18 @@ ActiveRecord::Schema.define(:version => 20110301183615) do
     t.string   "nome"
     t.string   "email"
     t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vinculos", :force => true do |t|
+    t.integer  "pessoa_id"
+    t.date     "dataEntrada"
+    t.date     "dataSaida"
+    t.float    "salario"
+    t.string   "banco"
+    t.string   "agencia"
+    t.integer  "conta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -22,7 +22,7 @@ class PessoasController < ApplicationController
     @pessoa = Pessoa.new(params[:pessoa])
     respond_to do |format|
       if @pessoa.save
-        format.html { redirect_to(@pessoa, :notice => 'Pessoa was successfully created.') }
+        format.html { redirect_to(@pessoa, :notice => 'Pessoa criada com sucesso') }
       else
         format.html { render :action => "new" }
       end
@@ -34,7 +34,7 @@ class PessoasController < ApplicationController
 
     respond_to do |format|
       if @pessoa.update_attributes(params[:pessoa])
-        format.html { redirect_to(@pessoa, :notice => 'Pessoa was successfully updated.') }
+        format.html { redirect_to(@pessoa, :notice => 'Pessoa atualizada com sucesso') }
       else
         format.html { render :action => "edit" }
       end

@@ -12,12 +12,18 @@ module NavigationHelpers
     when /p(?:a|á)gina inicial/
       '/'
 
+    when /home do usu(?:a|á)rio/
+      '/home'
+
     when /p(?:a|á)gina de visualiza(?:c|ç)(?:a|ã)o da pessoa "(.*)"/
       pessoa = Pessoa.find_by_nome $1
       pessoa_path(pessoa.id)
 
     when /p(?:a|á)gina de cria(?:c|ç)(?:a|ã)o de (.*)/
       self.send("new_#{$1}_path")
+
+    when /p(?:a|á)gina de login/
+      '/login'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

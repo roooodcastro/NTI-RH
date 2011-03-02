@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Datainicio:</b>
+  <%= @participacao_projeto.dataInicio %>
+</p>
+
+<p>
+  <b>Datatermino:</b>
+  <%= @participacao_projeto.dataTermino %>
+</p>
+
+<p>
+  <b>Vinculo:</b>
+  <%= @participacao_projeto.vinculo_id %>
+</p>
+
+<p>
+  <b>Cargo:</b>
+  <%= @participacao_projeto.cargo_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_participacao_projeto_path(@participacao_projeto) %> |
+<%= link_to 'Back', participacao_projetos_path %>

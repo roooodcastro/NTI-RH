@@ -5,27 +5,33 @@ Funcionalidade: Gerenciar o cadastro de pessoas
   Cadastrar pessoas, editar pessoas e exculir pessoas.
   Também poder adicionar competências para a pessoa.
 
-  Cenário: Cadastrar pessoa
+  Contexto:
     Dado que eu esteja na página inicial
-    Então eu devo ver "Pessoas"
-    Quando eu clico "Pessoas"
+    Quando eu clico "Login"
+    Então eu devo estar na página de login
+    E eu preencho "email" com "nti.rhadmin@gmail.com"
+    E eu preencho "senha" com "123456"
+    Quando eu aperto "Login"
+    Então eu devo estar na home do usuário
+
+  Cenário: Cadastrar pessoa
+    Dado que eu esteja na página de pessoas
     Quando eu clico "New Pessoa"
     Então eu devo ver "Nome"
     Quando eu preencho "Nome" com "Rodrigo"
-    Quando eu preencho "Cpf" com "Rodrigo"
+    Quando eu preencho "Cpf" com "12345678901"
     Quando eu preencho "Endereco" com "Rodrigo"
     Quando eu preencho "Celular" com "Rodrigo"
     Quando eu aperto "Create Pessoa"
-    Então eu devo ver "Pessoa was successfully created."
+    Então eu devo ver "Pessoa criada com sucesso"
 
   Cenário: Editar uma pessoa
-    Dado que eu esteja na página inicial
-    Quando eu clico "Pessoas"
+    Dado que eu esteja na página de pessoas
     Quando eu clico "José"
     Quando eu clico "Editar"
     Quando eu preencho "Nome" com "Pedro"
     Quando eu aperto "Update Pessoa"
-    Então eu devo ver "Pessoa was successfully updated."
+    Então eu devo ver "Pessoa atualizada com sucesso"
 
   Cenário: Mostrar os detalhes de uma pessoa
     Dado que eu esteja na página de pessoas

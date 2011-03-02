@@ -1,15 +1,16 @@
 Rh::Application.routes.draw do
+
+  resources :comentarios
+
+  resources :participacao_projetos
+
+  resources :vinculos
+
   resources :users
 
   resources :competencias, :except => :index
 
-  resources :participacao_em_projetos
-
-  resources :observacoes
-
   resources :projetos
-
-  resources :vinculos
 
   resources :cargos
 
@@ -20,12 +21,10 @@ Rh::Application.routes.draw do
   root :to => "application#index"
 
 
-  get '/home' => "users#index"
+  get '/home' => "users#home"
   get '/login' => "users#login"
   post '/login' => "users#do_login"
-  
   get '/logout' => "users#do_logout"
-  #post '/logout' => "users#do_logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,5 @@
+Admin:
+  id: 1
+  nome: Administrador
+  email: nti.rhadmin@gmail.com
+  password: 123456

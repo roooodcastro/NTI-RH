@@ -1,14 +1,9 @@
 /* 
     Document   : main
     Created on : 24/02/2011, 16:09:50
-    Author     : rodcastro
+    Author     : Rodrigo Castro
     Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+        CSS principal do site
 */
 
 root { 
@@ -49,18 +44,27 @@ a:hover {
     color: #666666;
 }
 
+.even {
+    background-color: White;
+}
+
+.odd {
+    background-color: #ECF0D3;
+}
+
 div.field, div.actions {
     margin-bottom: 10px;
 }
 
 .messages {
-    width: 90%;
+    width: 70%;
 }
 
 .messages .message {
     border: 2px solid;
     font-weight: bold;
-    padding: 8px;
+    font-size: 12px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -106,6 +110,12 @@ div.field, div.actions {
 }
 .template {
     width: 900px;
+}
+
+.round {
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 .header {
@@ -182,10 +192,11 @@ div.field, div.actions {
 }
 
 .menu_drop {
-    position: absolute;
+    top: 0px;
+    left: 0px;
     background-color: #CCCB93;
     background-color: rgba(204, 203, 147, 0.9);
-    width: 160px;
+    width: 170px;
     border: 1px solid #CCCB93;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -253,4 +264,20 @@ div.field, div.actions {
     width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.data_list {
+    width: 700px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 1px solid white;
+}
+
+
+.data_list tr th {
+    background-color: #A8BF6A;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#A8BF6A', endColorstr='#C8DF8A');
+    background: -webkit-gradient(linear, left top, left bottom, from(#A8BF6A), to(#C8DF8A));
+    background: -moz-linear-gradient(top,  #A8BF6A,  #C8DF8A);
 }

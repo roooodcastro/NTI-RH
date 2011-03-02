@@ -10,8 +10,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def home
+    
+  end
+
   def new
     @user = User.new
+    unless current_user.email == "nti.rhadmin@gmail.com"
+      respond_to do |format|
+        format.html { redirect_to(home_path, :alert => "Você não tem permissão para fazer isso") }
+      end
+    end
   end
 
   def edit
@@ -44,7 +53,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to(users_url, :notice => 'Usuário excluído com sucesso') }
+      format.html { redirect_to(home_path, :notice => 'Usuário excluído com sucesso') }
     end
   end
 
@@ -55,8 +64,8 @@ class UsersController < ApplicationController
   def do_login
     session[:current_user] = User.find_by_email_and_password(params[:user][:email], params[:user][:password])
     respond_to do |format|
-      if session[:current_user]
-        format.html { redirect_to(home_path, :notice => "Bem vindo ao sistema, #{session[:current_user].nome}") }
+      if current_user
+        format.html { redirect_to(home_path, :notice => "Bem vindo ao sistema, #{current_user.nome}") }
       else
         format.html { redirect_to(login_path, :alert => "Login não realizado, usuário ou senha incorretos") }
       end

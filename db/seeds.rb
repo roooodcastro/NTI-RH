@@ -10,3 +10,5 @@ Conhecimento.create({ :nome => "Java", :dominio => "Desenvolvimento" })
 Conhecimento.create({ :nome => "Ruby", :dominio => "Desenvolvimento" })
 Conhecimento.create({ :nome => "C++", :dominio => "Desenvolvimento" })
 Conhecimento.create({ :nome => "Delphi", :dominio => "Desenvolvimento" })
+
+User.create({ :nome => "Administrador", :email => "nti.rhadmin@gmail.com", :password => "123456"})

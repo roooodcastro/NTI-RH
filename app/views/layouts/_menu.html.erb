@@ -1,15 +1,7 @@
 <script type = "text/javascript" >
   $(document).ready(function() {
-    $("#pessoas_drop").hide();
-    $("#pessoas_drop, #pessoas_item").mouseenter(function() {
-      menuDropEnter("#pessoas_item", "#pessoas_drop");
-    });
-    $("#pessoas_item, #pessoas_drop").mouseleave(function() {
-      menuDropLeave("#pessoas_item", "#pessoas_drop");
-    });
+    menuHorizontal();
   });
-
-
 </script>
 
 <div>
@@ -21,11 +13,11 @@
       <li id="pessoas_item">
         <%= link_to "Pessoas", "#" %>
       </li>
-      <li>
-        <%= link_to "Projetos", projetos_path %>
+      <li id="projetos_item">
+        <%= link_to "Projetos", "#" %>
       </li>
-      <li>
-        <%= link_to "Cargos", cargos_path %>
+      <li id="outros_item">
+        <%= link_to "Outros", "#" %>
       </li>
       <li>
         <%= link_to "Logout", logout_path %>
@@ -42,7 +34,7 @@
   </ul>
 </div>
 
-<div id="pessoas_drop">
+<div id="pessoas_drop" style="position: absolute;">
   <ul class="menu_drop">
     <li>
       <%= link_to "Listar pessoas", pessoas_path %>
@@ -51,5 +43,34 @@
       <%= link_to "Cadastrar pessoa", new_pessoa_path %>
     </li>
   </ul>
+</div>
 
+<div id="projetos_drop" style="position: absolute;">
+  <ul class="menu_drop">
+    <li>
+      <%= link_to "Projetos em andamento", projetos_path %>
+    </li>
+    <li>
+      <%= link_to "Criar novo projeto", new_projeto_path %>
+    </li>
+  </ul>
+</div>
+
+<div id="outros_drop" style="position: absolute;">
+  <ul class="menu_drop">
+    <li>
+      <%= link_to "Gerenciar cargos", cargos_path %>
+    </li>
+    <li>
+      <%= link_to "Gerenciar comentários", comentarios_path %>
+    </li>
+    <% if user_is_admin? %>
+      <li>
+        <%= link_to "Cadastrar usuário", new_user_path %>
+      </li>
+      <li>
+        <%= link_to "Exibir usuários", users_path %>
+      </li>
+    <% end %>
+  </ul>
 </div>

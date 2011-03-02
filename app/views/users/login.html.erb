@@ -4,14 +4,14 @@
 
     <div class="field">
       <%= f.label "Email:" %><br />
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :id => 'email' %>
     </div>
     <div class="field">
       <%= f.label "Senha:" %><br />
-      <%= f.password_field :password %>
+      <%= f.password_field :password, :id => 'senha' %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit :value => 'Login' %>
     </div>
 
   <% end %>
