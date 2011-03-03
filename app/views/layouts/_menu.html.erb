@@ -40,7 +40,13 @@
       <%= link_to "Listar pessoas", pessoas_path %>
     </li>
     <li>
+      <%= link_to "Pessoas vinculadas", vinculos_path %>
+    </li>
+    <li>
       <%= link_to "Cadastrar pessoa", new_pessoa_path %>
+    </li>
+    <li>
+      <%= link_to "Vincular pessoa", new_vinculo_path %>
     </li>
   </ul>
 </div>
@@ -49,6 +55,9 @@
   <ul class="menu_drop">
     <li>
       <%= link_to "Projetos em andamento", projetos_path %>
+    </li>
+    <li>
+      <%= link_to "Incluir pessoa a projeto", new_participacao_projeto_path %>
     </li>
     <li>
       <%= link_to "Criar novo projeto", new_projeto_path %>

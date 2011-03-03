@@ -1,27 +1,18 @@
-<h1>Listing projetos</h1>
+<h1>Projetos em andamento</h1>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Data inicial</th>
-    <th>Descricao</th>
-    <th></th>
-    <th></th>
-    <th></th>
+<table class="data_list" cellpadding="0" cellspacing="0">
+  <tr class="table_head">
+    <td>Nome</td>
+    <td>Descrição</td>
+    <td>Data inicial</td>
   </tr>
-
-<% @projetos.each do |projeto| %>
-  <tr>
-    <td><%= projeto.nome %></td>
-    <td><%= projeto.data_inicial %></td>
-    <td><%= projeto.descricao %></td>
-    <td><%= link_to 'Show', projeto %></td>
-    <td><%= link_to 'Edit', edit_projeto_path(projeto) %></td>
-    <td><%= link_to 'Destroy', projeto, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @projetos.each do |projeto| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td><%= projeto.nome %></td>
+      <td><%= link_to projeto.descricao, projeto %></td>
+      <td><%= projeto.data_inicial.strftime "%d/%m/%Y" %></td>
+    </tr>
+  <% end %>
 </table>
-
-<br />
 
 <%= link_to 'New Projeto', new_projeto_path %>

@@ -25,6 +25,9 @@ class ParticipacaoProjetosController < ApplicationController
   # GET /participacao_projetos/new.xml
   def new
     @participacao_projeto = ParticipacaoProjeto.new
+    @vinculos = Vinculo.all
+    @projetos = Projeto.all
+    @cargos = Cargo.all
 
     respond_to do |format|
       format.html # new.html.erb

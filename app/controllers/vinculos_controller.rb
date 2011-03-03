@@ -25,6 +25,7 @@ class VinculosController < ApplicationController
   # GET /vinculos/new.xml
   def new
     @vinculo = Vinculo.new
+    @pessoas = Pessoa.all
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,19 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nome:</b>
-  <%= @projeto.nome %>
-</p>
+<div class="data_show">
+  <h1><%= @projeto.nome %></h1>
 
 <p>
   <b>Data inicial:</b>
-  <%= @projeto.data_inicial %>
+  <%= "#{@projeto.data_inicial.strftime "%A, %d de %B de %Y"} (#{pluralize((Date.today - @projeto.data_inicial).to_i, "dia")} atrás)"%>
 </p>
 
 <p>
   <b>Descricao:</b>
   <%= @projeto.descricao %>
 </p>
+</div>
 
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %>
+<h3>Participantes:</h3>
+<table class="projetos_vinculos" cellpadding="0px" cellspacing="0px">
+  <tr>
+    <th><p>Pessoa</p></th>
+    <th><p>Cargo</p></th>
+  </tr>
+  <% @projeto.participacao_projetos.each do |participacao_projeto| %>
+  <tr class="<%= cycle("even", "odd") %>" >
+    <td>
+      <%= link_to participacao_projeto.vinculo.pessoa.nome, participacao_projeto.vinculo %>
+    </td>
+    <td>
+      <%= link_to participacao_projeto.cargo.nome, participacao_projeto %>
+    </td>
+  </tr>
+  <% end %>
+</table>

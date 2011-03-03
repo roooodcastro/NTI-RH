@@ -1,40 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Pessoa:</b>
-  <%= @vinculo.pessoa_id %>
-</p>
 
-<p>
-  <b>Dataentrada:</b>
-  <%= @vinculo.dataEntrada %>
-</p>
+<div class="pessoas_dados">
+  <ul>
+    <li>
+      <b>Pessoa:</b>
+      <%= @vinculo.pessoa.nome %>
+    </li>
+    <li>
+      <b>Dataentrada:</b>
+      <%= @vinculo.dataEntrada %>
+    </li>
+    <li>
+      <b>Datasaida:</b>
+      <% unless @vinculo.dataSaida %>
+        <%= "#{@vinculo.pessoa.nome} ainda está vinculado(a)" %>
+      <% end %>
+      <%= @vinculo.dataSaida %>
+    </li>
+    <li>
+      <b>Salario:</b>
+      <%= @vinculo.salario %>
+    </li>
+    <li>
+      <b>Banco:</b>
+      <%= @vinculo.banco %>
+    </li>
+    <li>
+      <b>Agencia:</b>
+      <%= @vinculo.agencia %>
+    </li>
+    <li>
+      <b>Conta:</b>
+      <%= @vinculo.conta %>
+    </li>
+  </ul>
 
-<p>
-  <b>Datasaida:</b>
-  <%= @vinculo.dataSaida %>
-</p>
+</div>
 
-<p>
-  <b>Salario:</b>
-  <%= @vinculo.salario %>
-</p>
-
-<p>
-  <b>Banco:</b>
-  <%= @vinculo.banco %>
-</p>
-
-<p>
-  <b>Agencia:</b>
-  <%= @vinculo.agencia %>
-</p>
-
-<p>
-  <b>Conta:</b>
-  <%= @vinculo.conta %>
-</p>
-
-
-<%= link_to 'Edit', edit_vinculo_path(@vinculo) %> |
+<%= link_to 'Editar', edit_vinculo_path(@vinculo) %> |
 <%= link_to 'Back', vinculos_path %>

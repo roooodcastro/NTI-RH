@@ -3,7 +3,8 @@ class ProjetosController < ApplicationController
   before_filter :login_required
 
   def index
-    @projetos = Projeto.all
+    @projetos = Projeto.where(Projeto.arel_table[:data_final].eq(nil))
+
   end
 
   def show

@@ -1,5 +1,45 @@
-<h1>New participacao_projeto</h1>
+<h1>Incluir pessoa em projeto</h1>
 
-<%= render 'form' %>
+<% unless @projetos.empty? or @cargos.empty? or @vinculos.empty? %>
+<div class="form">
+  <%= form_for(@participacao_projeto) do |f| %>
+    <% if @participacao_projeto.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@participacao_projeto.errors.count, "erro") %> impediram esta participação de ser salva:</h2>
+
+        <ul>
+          <% @participacao_projeto.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field select">
+      <%= f.label "Projeto:" %><br/>
+      <%= select "participacao_projeto", "projeto_id", @projetos.collect {|c| [c.nome, c.id]} %>
+    </div>
+    <div class="field date">
+      <%= f.label :dataInicio %><br />
+      <%= f.date_select :dataInicio %>
+    </div>
+    <div class="field date">
+      <%= f.label :dataTermino %><br />
+      <%= f.date_select :dataTermino %>
+    </div>
+    <div class="field select">
+      <%= f.label "Pessoa:" %><br />
+      <%= select "participacao_projeto", "vinculo_id", @vinculos.collect {|c| [c.pessoa.nome, c.id]} %>
+    </div>
+    <div class="field select">
+      <%= f.label :cargo_id %><br />
+      <%= select "participacao_projeto", "cargo_id", @cargos.collect {|c| [c.nome, c.id]} %>
+    </div>
+    <div class="actions">
+      <%= f.submit :value => "Incluir vínculo" %>
+    </div>
+  <% end %>
+</div>
+<% end %>
 
 <%= link_to 'Back', participacao_projetos_path %>
