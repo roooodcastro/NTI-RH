@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.password = Password.update(params[:user][:password])
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Usuário criado com sucesso') }
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.password = Password.update(params[:user][:password])
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'Usuário alterado com sucesso') }
@@ -62,7 +64,8 @@ class UsersController < ApplicationController
   end
 
   def do_login
-    session[:current_user] = User.find_by_email_and_password(params[:user][:email], params[:user][:password])
+    user = User.find_by_email(params[:user][:email])
+    session[:current_user] = user if Password::check(params[:user][:password], user.password)
     respond_to do |format|
       if current_user
         format.html { redirect_to(home_path, :notice => "Bem vindo ao sistema, #{current_user.nome}") }

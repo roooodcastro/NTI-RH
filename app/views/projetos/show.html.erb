@@ -1,17 +1,17 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
 <div class="data_show">
   <h1><%= @projeto.nome %></h1>
 
-<p>
-  <b>Data inicial:</b>
-  <%= "#{@projeto.data_inicial.strftime "%A, %d de %B de %Y"} (#{pluralize((Date.today - @projeto.data_inicial).to_i, "dia")} atrás)"%>
-</p>
+  <p>
+    <b>Data inicial:</b>
+    <%= "#{@projeto.data_inicial.strftime "%A, %d de %B de %Y"} (#{distance_of_time(@projeto.data_inicial)})"%>
+  </p>
 
-<p>
-  <b>Descricao:</b>
-  <%= @projeto.descricao %>
-</p>
+  <p>
+    <b>Descricao:</b>
+    <%= @projeto.descricao %>
+  </p>
 </div>
 
 <h3>Participantes:</h3>
@@ -21,13 +21,20 @@
     <th><p>Cargo</p></th>
   </tr>
   <% @projeto.participacao_projetos.each do |participacao_projeto| %>
-  <tr class="<%= cycle("even", "odd") %>" >
-    <td>
-      <%= link_to participacao_projeto.vinculo.pessoa.nome, participacao_projeto.vinculo %>
-    </td>
-    <td>
-      <%= link_to participacao_projeto.cargo.nome, participacao_projeto %>
-    </td>
-  </tr>
+    <tr class="<%= cycle("even", "odd") %>" >
+      <td>
+        <%= link_to participacao_projeto.vinculo.pessoa.nome, participacao_projeto.vinculo %>
+      </td>
+      <td>
+        <%= link_to participacao_projeto.cargo.nome, participacao_projeto %>
+      </td>
+    </tr>
+  <% end %>
+  <% if @projeto.participacao_projetos.empty? %>
+    <tr class="<%= cycle("even", "odd") %>" >
+      <td colspan="2">
+        <%= link_to "Ainda não há participantes para este projeto. Clique aqui para adicionar o primeiro", new_participacao_projeto_path %>
+      </td>
+    </tr>
   <% end %>
 </table>

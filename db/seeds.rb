@@ -1,3 +1,5 @@
+require_dependency 'password'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -17,4 +19,4 @@ Conhecimento.create({ :nome => "Ruby", :dominio => "Desenvolvimento" })
 Conhecimento.create({ :nome => "C++", :dominio => "Desenvolvimento" })
 Conhecimento.create({ :nome => "Delphi", :dominio => "Desenvolvimento" })
 
-User.create({ :nome => "Administrador", :email => "nti.rhadmin@gmail.com", :password => "123456"})
+User.create({ :nome => "Administrador", :email => "nti.rhadmin@gmail.com", :password => Password::update("123abc")})

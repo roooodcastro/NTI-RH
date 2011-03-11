@@ -11,4 +11,5 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular "Observacao", "Observacoes"
+  inflect.irregular "Impediu", "Impediram"
 end

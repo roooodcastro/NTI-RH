@@ -136,15 +136,18 @@ div.date select {
 .field_with_errors {
 /*    background-color: red;
     display: table;*/
+    margin: 0;
+    padding: 0;
 }
 
 #error_explanation {
-    width: 450px;
-    border: 2px solid red;
-    padding: 7px;
+    width: 550px;
+    text-align: left;
+    border: 2px solid #CC0000;
     padding-bottom: 0;
     margin-bottom: 20px;
     background-color: #f0f0f0;
+    -moz-border-radius: 7px;
 }
 
 #error_explanation h2 {
@@ -152,9 +155,9 @@ div.date select {
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
-    margin: -7px;
+    margin: 0px;
     margin-bottom: 0px;
-    background-color: #c00;
+    background-color: #CC0000;
     color: #fff;
 }
 
@@ -381,6 +384,17 @@ div.date select {
     margin: 10px 20px 10px 20px;
     padding-left: 15px;
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    line-height: 38px;
+    height: 40px;
+}
+
+.data_show td {
+    margin: 5px;
+    border: 1px solid #DCE6C3;
+    background-color: #F6F6F6;
+    padding-left: 15px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     line-height: 38px;

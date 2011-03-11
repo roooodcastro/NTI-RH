@@ -2,17 +2,22 @@
 
 <table class="data_list" cellpadding="0" cellspacing="0">
   <tr class="table_head">
-    <td>Nome</td>
-    <td>Descrição</td>
-    <td>Data inicial</td>
+    <td style="width: 80%;">Nome</td>
+    <td style="width: 20%;">Data inicial</td>
   </tr>
   <% @projetos.each do |projeto| %>
     <tr class="<%= cycle("even", "odd") %>">
-      <td><%= projeto.nome %></td>
-      <td><%= link_to projeto.descricao, projeto %></td>
+      <td><%= link_to projeto.nome, projeto %></td>
       <td><%= projeto.data_inicial.strftime "%d/%m/%Y" %></td>
     </tr>
   <% end %>
+    <% if @projetos.empty? %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td colspan="2" >
+        <%= link_to "Não há nenhum projeto em andamento no momento. Clique aqui para cadastrar um novo projeto", new_projeto_path %>
+      </td>
+    </tr>
+    <% end %>
 </table>
 
 <%= link_to 'New Projeto', new_projeto_path %>

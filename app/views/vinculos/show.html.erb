@@ -1,41 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="pessoas_dados">
-  <ul>
-    <li>
-      <b>Pessoa:</b>
-      <%= @vinculo.pessoa.nome %>
-    </li>
-    <li>
-      <b>Dataentrada:</b>
-      <%= @vinculo.dataEntrada %>
-    </li>
-    <li>
-      <b>Datasaida:</b>
-      <% unless @vinculo.dataSaida %>
-        <%= "#{@vinculo.pessoa.nome} ainda está vinculado(a)" %>
-      <% end %>
-      <%= @vinculo.dataSaida %>
-    </li>
-    <li>
-      <b>Salario:</b>
-      <%= @vinculo.salario %>
-    </li>
-    <li>
-      <b>Banco:</b>
-      <%= @vinculo.banco %>
-    </li>
-    <li>
-      <b>Agencia:</b>
-      <%= @vinculo.agencia %>
-    </li>
-    <li>
-      <b>Conta:</b>
-      <%= @vinculo.conta %>
-    </li>
-  </ul>
-
+<div class="data_show">
+  <h1><%= @vinculo.pessoa.nome %></h1>
+  <p>
+    <b>Dataentrada:</b>
+    <%= @vinculo.dataEntrada %>
+  </p>
+  <p>
+    <b>Datasaida:</b>
+    <% unless @vinculo.dataSaida %>
+      <%= "#{@vinculo.pessoa.nome} ainda está vinculado(a)" %>
+    <% end %>
+    <%= @vinculo.dataSaida %>
+  </p>
+  <table class="data_show_compact">
+    <tr>
+      <td>
+        <b>Salario:</b>
+        <%= @vinculo.salario %>
+      </td>
+      <td>
+        <b>Banco:</b>
+        <%= @vinculo.banco %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Agencia:</b>
+        <%= @vinculo.agencia %>
+      </td>
+      <td>
+        <b>Conta:</b>
+        <%= @vinculo.conta %>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <%= link_to 'Editar', edit_vinculo_path(@vinculo) %> |

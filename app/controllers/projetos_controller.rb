@@ -23,7 +23,7 @@ class ProjetosController < ApplicationController
     @projeto = Projeto.new(params[:projeto])
     respond_to do |format|
       if @projeto.save
-        format.html { redirect_to(@projeto, :notice => 'Projeto was successfully created.') }
+        format.html { redirect_to(@projeto, :notice => 'Projeto criado com sucesso.') }
       else
         format.html { render :action => "new" }
       end

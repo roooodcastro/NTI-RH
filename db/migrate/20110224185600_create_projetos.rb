@@ -3,6 +3,7 @@ class CreateProjetos < ActiveRecord::Migration
     create_table :projetos do |t|
       t.string :nome
       t.date :data_inicial
+      t.date :data_final
       t.string :descricao
 
       t.timestamps
