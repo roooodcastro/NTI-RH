@@ -65,7 +65,7 @@ div.form {
 div.field {
     margin-bottom: 10px;
     padding: 5px 0px 5px 20px;
-    height: 50px;
+    min-height: 50px;
     line-height: 25px;
     -moz-border-radius: 0px 30px 30px 0px;
     border-radius: 0px 30px 30px 0px;
@@ -108,6 +108,10 @@ div.select select {
 
 div.date select {
     min-width: 100px;
+}
+
+div.text textarea {
+    height: 100px;
 }
 
 .messages {

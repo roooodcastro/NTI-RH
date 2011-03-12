@@ -1,3 +1,4 @@
+
 # MySQL.  Versions 4.1 and 5.0 are recommended.
 #
 # Install the MySQL driver:
@@ -12,7 +13,7 @@ development:
   database: rh_development
   pool: 5
   username: root
-  password: tzzk7662
+  password: "123456"
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,7 +26,7 @@ test: &test
   database: rh_test
   pool: 5
   username: root
-  password: tzzk7662
+  password: "123456"
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -35,7 +36,7 @@ production:
   database: rh_production
   pool: 5
   username: root
-  password: tzzk7662
+  password: "123456"
   socket: /var/run/mysqld/mysqld.sock
 
 

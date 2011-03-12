@@ -1,29 +1,31 @@
-<%= form_for(@comentario) do |f| %>
-  <% if @comentario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+<div class="form">
+  <%= form_for(@comentario) do |f| %>
+    <% if @comentario.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
 
-      <ul>
-      <% @comentario.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @comentario.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :autor_id %><br />
+      <%= f.text_field :autor_id %>
+    </div>
+    <div class="field">
+      <%= f.label :texto %><br />
+      <%= f.text_area :texto %>
+    </div>
+    <div class="field">
+      <%= f.label :destinatario_id %><br />
+      <%= f.text_field :destinatario_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :autor_id %><br />
-    <%= f.text_field :autor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :texto %><br />
-    <%= f.text_area :texto %>
-  </div>
-  <div class="field">
-    <%= f.label :destinatario_id %><br />
-    <%= f.text_field :destinatario_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

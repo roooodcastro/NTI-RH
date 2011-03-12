@@ -1,6 +1,7 @@
 <h1>Login</h1>
 
-<%= form_for @user, :url => { :action => "do_login" } do |f| %>
+<div class="form">
+  <%= form_for @user, :url => { :action => "do_login" } do |f| %>
 
     <div class="field">
       <%= f.label "Email:" %><br />
@@ -15,3 +16,4 @@
     </div>
 
   <% end %>
+</div>
