@@ -1,31 +1,19 @@
-<h1>Listing vinculos</h1>
+<h1>Pessoas vinculadas</h1>
 
-<table>
-  <tr>
-    <th>Pessoa</th>
-    <th>Dataentrada</th>
-    <th>Datasaida</th>
-    <th>Salario</th>
-    <th>Banco</th>
-    <th>Agencia</th>
-    <th>Conta</th>
-    <th></th>
-    <th></th>
-    <th></th>
+<table class="data_list" cellpadding="0" cellspacing="0">
+  <tr class="table_head">
+    <td style="width: 55%;">Nome</td>
+    <td style="width: 15%;">Data entrada</td>
+    <td style="width: 15%;">Data saída</td>
+    <td style="width: 15%;">Salário</td>
   </tr>
 
 <% @vinculos.each do |vinculo| %>
-  <tr>
-    <td><%= vinculo.pessoa_id %></td>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= link_to vinculo.pessoa.nome, vinculo %></td>
     <td><%= vinculo.dataEntrada %></td>
     <td><%= vinculo.dataSaida %></td>
-    <td><%= vinculo.salario %></td>
-    <td><%= vinculo.banco %></td>
-    <td><%= vinculo.agencia %></td>
-    <td><%= vinculo.conta %></td>
-    <td><%= link_to 'Show', vinculo %></td>
-    <td><%= link_to 'Edit', edit_vinculo_path(vinculo) %></td>
-    <td><%= link_to 'Destroy', vinculo, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= number_to_currency(vinculo.salario, :delimiter => '') %></td>
   </tr>
 <% end %>
 </table>

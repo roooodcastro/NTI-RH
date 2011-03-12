@@ -20,6 +20,7 @@ Rh::Application.routes.draw do
 
   root :to => "application#index"
 
+  get '/:id/desvincular' => "vinculos#finalize", :as => "finalize_vinculo"
 
   get '/home' => "users#home"
   get '/login' => "users#login"
