@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20110303194632) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "data_final"
+    t.boolean  "terminado"
   end
 
   create_table "sessions", :force => true do |t|

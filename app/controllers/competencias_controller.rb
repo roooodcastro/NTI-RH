@@ -33,17 +33,6 @@ class CompetenciasController < ApplicationController
     end
   end
 
-  def update
-    @competencia = Competencia.find(params[:id])
-    respond_to do |format|
-      if @competencia.update_attributes(params[:competencia])
-        format.html { redirect_to(@competencia, :notice => 'Competencia was successfully updated.') }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
-  end
-
   def destroy
     @competencia = Competencia.find(params[:id])
     pessoa = Pessoa.find_by_id @competencia.pessoa_id

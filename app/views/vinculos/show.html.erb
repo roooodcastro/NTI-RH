@@ -2,23 +2,23 @@
 
 
 <div class="data_show">
-  <h1><%= @vinculo.pessoa.nome %></h1>
+  <h1><%= "Vínculo ##{@vinculo.id} - #{@vinculo.pessoa.nome}" %></h1>
   <p>
-    <b>Dataentrada:</b>
+    <b>Data de entrada:</b>
     <%= @vinculo.dataEntrada %>
   </p>
   <p>
-    <b>Datasaida:</b>
+    <b>Data de saída:</b>
     <% unless @vinculo.dataSaida %>
       <%= "#{@vinculo.pessoa.nome} ainda está vinculado(a)" %>
     <% end %>
     <%= @vinculo.dataSaida %>
   </p>
-  <table class="data_show_compact">
+  <table class="data_show_compact" cellpadding="0" cellspacing="0">
     <tr>
       <td>
-        <b>Salario:</b>
-        <%= @vinculo.salario %>
+        <b>Salário:</b>
+        <%= number_to_currency(@vinculo.salario, :delimiter => '') %>
       </td>
       <td>
         <b>Banco:</b>
@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <td>
-        <b>Agencia:</b>
+        <b>Agência:</b>
         <%= @vinculo.agencia %>
       </td>
       <td>
@@ -38,5 +38,7 @@
   </table>
 </div>
 
-<%= link_to 'Editar', edit_vinculo_path(@vinculo) %> |
-<%= link_to 'Back', vinculos_path %>
+<div class="redirect_buttons">
+  <%= link_to "Desvincular Pessoa", finalize_vinculo_path %>
+  <%= link_to "Editar vínculo", edit_vinculo_path %>
+</div>

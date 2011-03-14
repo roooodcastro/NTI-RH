@@ -6,7 +6,7 @@ class Vinculo < ActiveRecord::Base
 
   def self.has_active_vinculo?
     self.all.each do |vinculo|
-      return true if vinculo.dataSaida
+      return true if not vinculo.dataSaida
     end
     false
   end

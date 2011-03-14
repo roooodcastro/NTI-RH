@@ -1,6 +1,6 @@
 class VinculosController < ApplicationController
   def index
-    @vinculos = Vinculo.all
+    @vinculos = Vinculo.where :dataSaida => nil
   end
 
   def show
@@ -9,11 +9,24 @@ class VinculosController < ApplicationController
 
   def new
     @vinculo = Vinculo.new
+    if params[:id]
+      @pessoa = Pessoa.find(params[:id])
+      if @pessoa
+        @nome_pessoa = @pessoa.nome
+        @vinculo.pessoa_id = @pessoa.id
+      end
+    else
+      @nome_pessoa = "pessoa"
+    end
     @pessoas = Pessoa.all
+    if @pessoas.empty?
+      redirect_to :back, :alert => 'Não é possível vincular uma pessoa pois não há ninguém cadastrado'
+    end
   end
 
   def edit
     @vinculo = Vinculo.find(params[:id])
+    @pessoas = Pessoa.all
   end
 
   def create

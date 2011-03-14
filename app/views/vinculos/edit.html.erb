@@ -1,6 +1,49 @@
-<h1>Editing vinculo</h1>
+<h1>Editar vínculo</h1>
 
-<%= render 'form' %>
+<div class="form">
+  <%= form_for(@vinculo) do |f| %>
+    <% if @vinculo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@vinculo.errors.count, "error") %> prohibited this vinculo from being saved:</h2>
 
-<%= link_to 'Show', @vinculo %> |
-<%= link_to 'Back', vinculos_path %>
+        <ul>
+          <% @vinculo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field select">
+      <%= f.label :pessoa_id %><br />
+      <%= select "vinculo", "pessoa_id", @pessoas.collect {|c| [c.nome, c.id]}, :style => "width: 500px"  %>
+    </div>
+    <div class="field date">
+      <%= f.label :dataEntrada %><br />
+      <%= f.date_select :dataEntrada %>
+    </div>
+    <div class="field date">
+      <%= f.label :dataSaida %><br />
+      <%= f.date_select :dataSaida %>
+    </div>
+    <div class="field">
+      <%= f.label :salario %><br />
+      <%= f.text_field :salario %>
+    </div>
+    <div class="field">
+      <%= f.label :banco %><br />
+      <%= f.text_field :banco %>
+    </div>
+    <div class="field">
+      <%= f.label :agencia %><br />
+      <%= f.text_field :agencia %>
+    </div>
+    <div class="field">
+      <%= f.label :conta %><br />
+      <%= f.text_field :conta %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

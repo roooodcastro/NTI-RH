@@ -21,6 +21,8 @@ Rh::Application.routes.draw do
   root :to => "application#index"
 
   get '/:id/desvincular' => "vinculos#finalize", :as => "finalize_vinculo"
+  get '/projetos_finalizados' => "projetos#index_old", :as => "finalized_projects"
+  get '/vinculos/new/:id' => "vinculos#new", :as => "new_param_vinculo"
 
   get '/home' => "users#home"
   get '/login' => "users#login"

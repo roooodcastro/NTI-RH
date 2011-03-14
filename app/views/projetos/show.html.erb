@@ -14,27 +14,29 @@
   </p>
 </div>
 
-<h3>Participantes:</h3>
-<table class="projetos_vinculos" cellpadding="0px" cellspacing="0px">
-  <tr>
-    <th><p>Pessoa</p></th>
-    <th><p>Cargo</p></th>
-  </tr>
-  <% @projeto.participacao_projetos.each do |participacao_projeto| %>
-    <tr class="<%= cycle("even", "odd") %>" >
-      <td>
-        <%= link_to participacao_projeto.vinculo.pessoa.nome, participacao_projeto.vinculo %>
-      </td>
-      <td>
-        <%= link_to participacao_projeto.cargo.nome, participacao_projeto %>
-      </td>
+<div class="data_show_child">
+  <h3>Participantes:</h3>
+  <table cellpadding="0px" cellspacing="0px">
+    <tr>
+      <th><p>Pessoa</p></th>
+      <th><p>Cargo</p></th>
     </tr>
-  <% end %>
-  <% if @projeto.participacao_projetos.empty? %>
-    <tr class="<%= cycle("even", "odd") %>" >
-      <td colspan="2">
-        <%= link_to "Ainda não há participantes para este projeto. Clique aqui para adicionar o primeiro", new_participacao_projeto_path %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+    <% @projeto.participacao_projetos.each do |participacao_projeto| %>
+      <tr class="<%= cycle("even", "odd") %>" >
+        <td>
+          <%= link_to participacao_projeto.vinculo.pessoa.nome, participacao_projeto.vinculo %>
+        </td>
+        <td>
+          <%= link_to participacao_projeto.cargo.nome, participacao_projeto %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @projeto.participacao_projetos.empty? %>
+      <tr class="<%= cycle("even", "odd") %>" >
+        <td colspan="2">
+          <%= link_to "Ainda não há participantes para este projeto. Clique aqui para adicionar o primeiro", new_participacao_projeto_path %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

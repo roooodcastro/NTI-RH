@@ -1,28 +1,26 @@
-<h1>Listing pessoas</h1>
+<h1>Pessoas cadastradas</h1>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Cpf</th>
-    <th>Celular</th>
-    <th>Endereco</th>
-    <th></th>
-    <th></th>
-    <th></th>
+<table class="data_list" cellpadding="0" cellspacing="0">
+  <tr class="table_head">
+    <td style="width: 42%;">Nome</td>
+    <td style="width: 14%;">CPF</td>
+    <td style="width: 14%;">Celular</td>
+    <td style="width: 30%;">Endereço</td>
   </tr>
 
-<% @pessoas.each do |pessoa| %>
-  <tr>
-    <td><%= link_to pessoa.nome, pessoa %></td>
-    <td><%= pessoa.cpf %></td>
-    <td><%= pessoa.celular %></td>
-    <td><%= pessoa.endereco %></td>
-    <td><%= link_to 'Edit', edit_pessoa_path(pessoa), :id => "edit_pessoa_#{pessoa.id}" %></td>
-    <td><%= link_to 'Destroy', pessoa, :confirm => 'Are you sure?', :method => :delete, :id => "destroy_pessoa_#{pessoa.id}" %></td>
-  </tr>
-<% end %>
+  <% @pessoas.each do |pessoa| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td><%= link_to pessoa.nome, pessoa %></td>
+      <td><%= link_to pessoa.cpf, pessoa %></td>
+      <td><%= pessoa.celular %></td>
+      <td><%= pessoa.endereco %></td>
+    </tr>
+  <% end %>
+    <% if @pessoas.empty? %>
+    <tr>
+      <td>
+        <%=  link_to "Não há nenhuma pessoa cadastrada. Clique aqui para cadastrar a primeira", new_pessoa_path %>
+      </td>
+    </tr>
+    <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Pessoa', new_pessoa_path %>

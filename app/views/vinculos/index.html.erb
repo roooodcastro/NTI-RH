@@ -2,22 +2,23 @@
 
 <table class="data_list" cellpadding="0" cellspacing="0">
   <tr class="table_head">
-    <td style="width: 55%;">Nome</td>
-    <td style="width: 15%;">Data entrada</td>
-    <td style="width: 15%;">Data saída</td>
-    <td style="width: 15%;">Salário</td>
+    <td style="width: 60%;">Nome</td>
+    <td style="width: 20%;">Data entrada</td>
+    <td style="width: 20%;">Salário</td>
   </tr>
 
-<% @vinculos.each do |vinculo| %>
-  <tr class="<%= cycle("even", "odd") %>">
-    <td><%= link_to vinculo.pessoa.nome, vinculo %></td>
-    <td><%= vinculo.dataEntrada %></td>
-    <td><%= vinculo.dataSaida %></td>
-    <td><%= number_to_currency(vinculo.salario, :delimiter => '') %></td>
-  </tr>
-<% end %>
+  <% @vinculos.each do |vinculo| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td><%= link_to vinculo.pessoa.nome, vinculo %></td>
+      <td><%= vinculo.dataEntrada.strftime "%d/%m/%Y" %></td>
+      <td><%= number_to_currency(vinculo.salario, :delimiter => '') %></td>
+    </tr>
+  <% end %>
+  <% if @vinculos.empty? %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td colspan="3">
+        <%= link_to "Não há nenhum vínculo ativo no momento, clique aqui para vincular uma pessoa", new_vinculo_path %>
+      </td>
+    </tr>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Vincular outra pessoa', new_vinculo_path %>

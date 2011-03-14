@@ -1,4 +1,4 @@
-<h1>Vincular pessoa</h1>
+<h1><%= "Vincular #{@nome_pessoa}" %></h1>
 
 <div class="form">
   <%= form_for(@vinculo) do |f| %>
@@ -14,10 +14,14 @@
       </div>
     <% end %>
 
-    <div class="field select">
-      <%= f.label "Pessoa a ser vinculada" %><br />
-      <%= select "vinculo", "pessoa_id", @pessoas.collect {|c| [c.nome, c.id]}, :style => "width: 500px"  %>
-    </div>
+    <% if not @pessoa %>
+      <div class="field select">
+        <%= f.label "Pessoa a ser vinculada" %><br />
+        <%= select "vinculo", "pessoa_id", @pessoas.collect {|c| [c.nome, c.id]}, :style => "width: 500px"  %>
+      </div>
+    <% else %>
+      <%= f.hidden_field :pessoa_id %>
+    <% end %>
 
     <div class="field date">
       <%= f.label "Data de entrada:" %><br />
@@ -43,8 +47,9 @@
       <%= f.label :conta %><br />
       <%= f.text_field :conta %>
     </div>
-    <div class="actions">
+    <div class="actions redirect_buttons">
       <%= f.submit :value => "Criar vínculo"%>
+      <%= link_to "Cancelar", :back %>
     </div>
   <% end %>
 </div>

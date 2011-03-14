@@ -1,49 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= "Perfil de #{@pessoa.nome}" %></h1>
-
-<div class="pessoas_dados">
-  <ul>
-    <li>
-      <b>Nome:</b>
-      <%= @pessoa.nome %><br/>
-    </li>
-    <li>
-      <b>CPF:</b>
-      <%= @pessoa.cpf %><br/>
-    </li>
-    <li>
-      <b>Celular:</b>
-      <%= @pessoa.celular %><br/>
-    </li>
-    <li>
-      <b>Endereco:</b>
-      <%= @pessoa.endereco %><br/>
-    </li>
-  </ul>
+<p id="notice"></p>
+<div class="data_show">
+  <h1><%= "Perfil de #{@pessoa.nome}" %></h1>
+  <p>
+    <b>Nome:</b>
+    <%= @pessoa.nome %><br/>
+  </p>
+  <p>
+    <b>CPF:</b>
+    <%= @pessoa.cpf %><br/>
+  </p>
+  <p>
+    <b>Celular:</b>
+    <%= @pessoa.celular %><br/>
+  </p>
+  <p>
+    <b>Endereco:</b>
+    <%= @pessoa.endereco %><br/>
+  </p>
 </div>
-<div>
+<div class="data_show_child">
   <h3>Competências:</h3>
-  <table>
+  <table cellpadding="0" cellspacing="0">
     <tr>
-      <th>Grau</th>
-      <th>Conhecimento</th>
+      <th><p>Grau de sabedoria</p></th>
+      <th><p>Nome do conhecimento</p></th>
     </tr>
 
     <% @pessoa.competencias.each do |competencia| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>" >
         <td><%= competencia.grau %></td>
         <td><%= competencia.conhecimento.nome %></td>
-        <td><%= link_to 'Remover', competencia, :method => :delete %></td>
+        <td><%= link_to "Remover", competencia, :method => :delete %></td>
       </tr>
     <% end %>
-  </table>
-
-  <%= link_to 'Adicionar competência', new_competencia_path(:pessoa_id => @pessoa.id) %>
+      <tr class="new" >
+        <td colspan="3">
+          <%= link_to "Clique aqui para adicionar uma nova competência", new_competencia_path(:pessoa_id => @pessoa.id) %>
+        </td>
+      </tr>
+    </table>
 </div>
-
-
-
-
-<%= link_to 'Editar', edit_pessoa_path(@pessoa) %> |
-<%= link_to 'Voltar', pessoas_path %>
+<div class="redirect_buttons">
+  <%= link_to "Editar pessoa", edit_pessoa_path(@pessoa) %>
+  <%= link_to "Excluir pessoa", @pessoa, :confirm => "Tem certeza?", :method => :delete %>
+  <%= link_to "Vincular essa pessoa", new_param_vinculo_path(@pessoa) %>
+</div>

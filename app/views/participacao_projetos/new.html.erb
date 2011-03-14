@@ -15,29 +15,29 @@
     <% end %>
 
     <div class="field select">
-      <%= f.label "Projeto:" %><br/>
+      <%= f.label "Projeto" %><br/>
       <%= select "participacao_projeto", "projeto_id", @projetos.collect {|c| [c.nome, c.id]} %>
     </div>
     <div class="field date">
-      <%= f.label :dataInicio %><br />
+      <%= f.label "Data de início" %><br />
       <%= f.date_select :dataInicio %>
     </div>
     <div class="field date">
-      <%= f.label :dataTermino %><br />
+      <%= f.label "Data de término" %><br />
       <%= f.date_select :dataTermino %>
     </div>
     <div class="field select">
-      <%= f.label "Pessoa:" %><br />
+      <%= f.label "Pessoa" %><br />
       <%= select "participacao_projeto", "vinculo_id", @vinculos.collect {|c| [c.pessoa.nome, c.id]} %>
     </div>
     <div class="field select">
       <%= f.label :cargo_id %><br />
       <%= select "participacao_projeto", "cargo_id", @cargos.collect {|c| [c.nome, c.id]} %>
     </div>
-    <div class="actions">
+    <div class="actions redirect_buttons">
       <%= f.submit :value => "Incluir vínculo" %>
+      <%= link_to 'Cancelar', :back %>
     </div>
   <% end %>
 </div>
 
-<%= link_to 'Back', participacao_projetos_path %>

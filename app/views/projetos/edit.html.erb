@@ -1,6 +1,38 @@
-<h1>Editing projeto</h1>
+<h1><%= "Editar projeto \"#{@projeto.nome}\"" %></h1>
 
-<%= render 'form' %>
+<div class="form">
+  <%= form_for(@projeto) do |f| %>
+    <% if @projeto.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
 
-<%= link_to 'Show', @projeto %> |
-<%= link_to 'Back', projetos_path %>
+        <ul>
+          <% @projeto.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :nome %><br />
+      <%= f.text_field :nome %>
+    </div>
+    <div class="field">
+      <%= f.label :data_inicial %><br />
+      <%= f.date_select :data_inicial %>
+    </div>
+    <div class="field">
+      <%= f.label :data_final %><br />
+      <%= f.date_select :data_final %>
+      <%= f.check_box :terminado %>
+    </div>
+    <div class="field">
+      <%= f.label :descricao %><br />
+      <%= f.text_field :descricao %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

@@ -32,6 +32,9 @@ class ProjetosController < ApplicationController
 
   def update
     @projeto = Projeto.find(params[:id])
+    if not @projeto.terminado
+      @projeto.data_final = nil
+    end
     respond_to do |format|
       if @projeto.update_attributes(params[:projeto])
         format.html { redirect_to(@projeto, :notice => 'Projeto was successfully updated.') }

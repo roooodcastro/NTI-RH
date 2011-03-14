@@ -1,5 +1,36 @@
-<h1>New pessoa</h1>
+<h1>Cadastrar nova pessoa</h1>
 
-<%= render 'form' %>
+<div class="form">
+  <%= form_for(@pessoa) do |f| %>
+    <% if @pessoa.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@pessoa.errors.count, "error") %> impediram essa pessoa de ser alterada:</h2>
+        <ul>
+          <% @pessoa.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= link_to 'Back', pessoas_path %>
+    <div class="field">
+      <%= f.label :nome %><br/>
+      <%= f.text_field :nome %>
+    </div>
+    <div class="field">
+      <%= f.label :cpf %><br />
+      <%= f.text_field :cpf %>
+    </div>
+    <div class="field">
+      <%= f.label :celular %><br />
+      <%= f.text_field :celular %>
+    </div>
+    <div class="field">
+      <%= f.label :endereco %><br />
+      <%= f.text_field :endereco %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div
