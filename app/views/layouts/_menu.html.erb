@@ -7,9 +7,9 @@
 
 <div>
   <ul class="menu">
-    <% if session[:current_user] %>
+    <% if current_user %>
       <li>
-        <%= link_to "Home", home_path %>
+        <%= link_to "Home", admin_home_path %>
       </li>
       <li id="pessoas_item">
         <%= link_to "Pessoas", "#" %>
@@ -21,15 +21,34 @@
         <%= link_to "Outros", "#" %>
       </li>
       <li>
+        <%= link_to "Logout", admin_logout_path %>
+      </li>
+    <% end %>
+
+    <% if current_pessoa %>
+      <li>
+        <%= link_to "Home", admin_home_path %>
+      </li>
+      <li id="pessoas_item">
+        <%= link_to "Meu perfil", "#" %>
+      </li>
+      <li id="projetos_item">
+        <%= link_to "Projetos", "#" %>
+      </li>
+      <li>
         <%= link_to "Logout", logout_path %>
       </li>
     <% end %>
-    <% if not session[:current_user] %>
+
+    <% if not (current_user or current_pessoa ) %>
       <li>
         <%= link_to "Página Inicial", root_path %>
       </li>
       <li>
         <%= link_to "Login", login_path %>
+      </li>
+      <li>
+        <%= link_to "Painel administrativo", admin_login_path %>
       </li>
     <% end %>
   </ul>
@@ -37,32 +56,59 @@
 
 <div id="pessoas_drop" style="position: absolute;">
   <ul class="menu_drop">
-    <li>
-      <%= link_to "Listar pessoas", pessoas_path %>
-    </li>
-    <li>
-      <%= link_to "Pessoas vinculadas", vinculos_path %>
-    </li>
-    <li>
-      <%= link_to "Cadastrar pessoa", new_pessoa_path %>
-    </li>
-    <li>
-      <%= link_to "Vincular pessoa", new_vinculo_path %>
-    </li>
+    <% if current_user %>
+      <li>
+        <%= link_to "Listar pessoas", pessoas_path %>
+      </li>
+      <li>
+        <%= link_to "Pessoas vinculadas", vinculos_path %>
+      </li>
+      <li>
+        <%= link_to "Cadastrar pessoa", new_pessoa_path %>
+      </li>
+      <li>
+        <%= link_to "Vincular pessoa", new_vinculo_path %>
+      </li>
+    <% end %>
+
+    <% if current_pessoa %>
+      <li>
+        <%= link_to "Visualizar perfil", current_pessoa %>
+      </li>
+      <% if current_pessoa.vinculado %>
+        <li>
+          <%= link_to "Meu vínculo", vinculo_path(current_pessoa) %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to "Vínculos anteriores", old_vinculos_path(current_pessoa) %>
+      </li>
+    <% end %>
   </ul>
 </div>
 
 <div id="projetos_drop" style="position: absolute;">
   <ul class="menu_drop">
-    <li>
-      <%= link_to "Projetos em andamento", projetos_path %>
-    </li>
-    <li>
-      <%= link_to "Incluir pessoa a projeto", new_participacao_projeto_path %>
-    </li>
-    <li>
-      <%= link_to "Criar novo projeto", new_projeto_path %>
-    </li>
+    <% if current_user %>
+      <li>
+        <%= link_to "Projetos em andamento", projetos_path %>
+      </li>
+      <li>
+        <%= link_to "Incluir pessoa a projeto", new_participacao_projeto_path %>
+      </li>
+      <li>
+        <%= link_to "Criar novo projeto", new_projeto_path %>
+      </li>
+    <% end %>
+
+    <% if current_pessoa %>
+      <li>
+        <%= link_to "Projetos em andamento", meus_projetos_path(current_pessoa.id) %>
+      </li>
+      <li>
+        <%= link_to "Projetos concluídos", meus_projetos_concluidos_path(current_pessoa.id) %>
+      </li>
+    <% end %>
   </ul>
 </div>
 

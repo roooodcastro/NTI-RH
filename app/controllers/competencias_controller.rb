@@ -2,10 +2,6 @@ class CompetenciasController < ApplicationController
 
   before_filter :login_required
 
-  def index
-    @competencias = Competencia.all
-  end
-
   def show
     @competencia = Competencia.find(params[:id])
   end
@@ -13,11 +9,6 @@ class CompetenciasController < ApplicationController
   def new
     @competencia = Competencia.new
     @competencia.pessoa_id = params[:pessoa_id]
-    @conhecimentos = Conhecimento.all
-  end
-
-  def edit
-    @competencia = Competencia.find(params[:id])
     @conhecimentos = Conhecimento.all
   end
 

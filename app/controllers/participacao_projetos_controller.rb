@@ -1,4 +1,8 @@
 class ParticipacaoProjetosController < ApplicationController
+
+  before_filter :admin_required, :except => [:show]
+  befora_filter :login_required, :only => [:show]
+
   def index
     @participacao_projetos = ParticipacaoProjeto.all
   end

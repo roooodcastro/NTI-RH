@@ -1,10 +1,10 @@
 class ProjetosController < ApplicationController
 
+  before_filter :admin_required, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :login_required
 
   def index
     @projetos = Projeto.where(Projeto.arel_table[:data_final].eq(nil))
-
   end
 
   def show
@@ -50,5 +50,13 @@ class ProjetosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(projetos_url) }
     end
+  end
+
+  def meus_projetos
+
+  end
+
+  def meus_projetos_concluidos
+
   end
 end

@@ -1,5 +1,7 @@
 Rh::Application.routes.draw do
 
+  match "projetos/:action", :controller => 'projetos', :action => /[a-z_]+/i
+
   resources :comentarios
 
   resources :participacao_projetos
@@ -10,7 +12,7 @@ Rh::Application.routes.draw do
 
   resources :competencias, :except => :index
 
-  resources :projetos
+  resources :projetos, :collection => { :meus_projetos_concluidos => :get}
 
   resources :cargos
 
@@ -23,11 +25,19 @@ Rh::Application.routes.draw do
   get '/:id/desvincular' => "vinculos#finalize", :as => "finalize_vinculo"
   get '/projetos_finalizados' => "projetos#index_old", :as => "finalized_projects"
   get '/vinculos/new/:id' => "vinculos#new", :as => "new_param_vinculo"
+  get '/pessoas/:id/vinculos_antigos' => "vinculos#old", :as => "old_vinculos"
+  get '/pessoa/:id/projetos' => "projetos#meus_projetos", :as => "meus_projetos"
+  get '/pessoa/:id/projetos_concluidos' => "projetos#meus_projetos_concluidos", :as => "meus_projetos_concluidos"
 
-  get '/home' => "users#home"
-  get '/login' => "users#login"
-  post '/login' => "users#do_login"
-  get '/logout' => "users#do_logout"
+  get '/admin_home' => "users#home"
+  get '/admin_login' => "users#login"
+  post '/admin_login' => "users#do_login"
+  get '/admin_logout' => "users#do_logout"
+
+  get '/home' => "pessoas#home"
+  get '/login' => "pessoas#login"
+  post '/login' => "pessoas#do_login"
+  get '/logout' => "pessoas#do_logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,7 +1,7 @@
-<h1>Login no painel administrativo</h1>
+<h1>Login</h1>
 
 <div class="form">
-  <%= form_for @user, :url => { :action => "do_login" } do |f| %>
+  <%= form_for @pessoa, :url => { :action => "do_login" } do |f| %>
 
     <div class="field">
       <%= f.label "Email:" %><br />
@@ -9,7 +9,7 @@
     </div>
     <div class="field">
       <%= f.label "Senha:" %><br />
-      <%= f.password_field :password, :id => 'senha' %>
+      <%= f.password_field :senha, :id => 'senha' %>
     </div>
     <div class="actions">
       <%= f.submit :value => 'Login' %>

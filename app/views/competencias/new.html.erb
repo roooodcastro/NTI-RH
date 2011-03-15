@@ -3,26 +3,27 @@
 <div class="form">
   <%= form_for(@competencia) do |f| %>
     <% if @competencia.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@competencia.errors.count, "error") %> prohibited this competencia from being saved:</h2>
-
-        <ul>
-          <% @competencia.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+      <center>
+        <div id="error_explanation">
+          <h2><%= "#{pluralize(@competencia.errors.count, "error")} #{pluralize_word(@projeto.errors.count, "impediu")} essa competência de ser adicionada:"%></h2>
+          <ul>
+            <% @competencia.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </center>
     <% end %>
 
-    <div class="field">
-      <%= f.label :grau %><br />
-      <%= f.text_field :grau %>
+    <div class="field select">
+      <%= f.label "Grau de conhecimento" %><br />
+      <%= select("competencia", "grau", niveis_de_conhecimento.collect {|c| [c[0], c[1]]}) %>
     </div>
-    <div class="field">
+    <div>
       <%= f.hidden_field :pessoa_id %>
     </div>
-    <div class="field">
-      <%= f.label :conhecimento_id %><br />
+    <div class="field select">
+      <%= f.label "Tecnologia" %><br />
       <%= select("competencia", "conhecimento_id", @conhecimentos.collect {|c| [c.nome, c.id]})  %>
     </div>
     <div class="actions">

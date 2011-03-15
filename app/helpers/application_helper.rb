@@ -9,6 +9,10 @@ module ApplicationHelper
     return word
   end
 
+  def niveis_de_conhecimento
+    return [["Nenhum", 0], ["Básico", 1],["Intermediário", 2],["Avançado", 3],["Domínio", 4]]
+  end
+
   def distance_of_time(from_time, options = {})
     from_time = from_time.to_time if from_time.respond_to?(:to_time)
     to_time = Time.now

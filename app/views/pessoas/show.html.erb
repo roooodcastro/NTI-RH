@@ -28,7 +28,7 @@
 
     <% @pessoa.competencias.each do |competencia| %>
       <tr class="<%= cycle("even", "odd") %>" >
-        <td><%= competencia.grau %></td>
+        <td><%= niveis_de_conhecimento[competencia.grau][0] %></td>
         <td><%= competencia.conhecimento.nome %></td>
         <td><%= link_to "Remover", competencia, :method => :delete %></td>
       </tr>

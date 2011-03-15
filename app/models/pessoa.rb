@@ -1,6 +1,7 @@
 class Pessoa < ActiveRecord::Base
 
   validates :nome, :presence => true
+  validates :senha, :presence => true
   validates :cpf, :presence => true, :length => { :within => 11..11 }
   validates :endereco, :presence => true
 
