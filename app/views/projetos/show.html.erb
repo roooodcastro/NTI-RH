@@ -31,12 +31,16 @@
         </td>
       </tr>
     <% end %>
-    <% if @projeto.participacao_projetos.empty? %>
-      <tr class="<%= cycle("even", "odd") %>" >
-        <td colspan="2">
-          <%= link_to "Ainda não há participantes para este projeto. Clique aqui para adicionar o primeiro", new_participacao_projeto_path %>
+    <% if current_user %>
+      <tr class="new" >
+        <td colspan="3">
+          <%= link_to "Clique aqui para adicionar um novo participante", new_participacao_projeto_path %>
         </td>
       </tr>
     <% end %>
   </table>
+</div>
+
+<div class="redirect_buttons">
+  <%= link_to "Voltar", :back %>
 </div>

@@ -13,6 +13,25 @@ module ApplicationHelper
     return [["Nenhum", 0], ["Básico", 1],["Intermediário", 2],["Avançado", 3],["Domínio", 4]]
   end
 
+  def profile_belongs_to_current_pessoa id_profile
+    if current_pessoa
+      return id_profile == current_pessoa.id
+    end
+    true
+  end
+
+  def current_vinculo
+    Vinculo.find_last_by_pessoa_id(current_pessoa.id)
+  end
+
+  def pessoa_possui_vinculo_antigo pessoa
+    vinculos = Vinculo.find_all_by_pessoa_id pessoa.id
+    vinculos.each do |vinculo|
+      return true if vinculo.dataSaida == nil
+    end
+    false
+  end
+
   def distance_of_time(from_time, options = {})
     from_time = from_time.to_time if from_time.respond_to?(:to_time)
     to_time = Time.now

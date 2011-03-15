@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
   def do_login
     user = User.find_by_email(params[:user][:email])
-    session[:current_user] = user if Password::check(params[:user][:password], user.password)
+    session[:current_user] = user if user and Password::check(params[:user][:password], user.password)
     respond_to do |format|
       if current_user
         session[:current_pessoa] = nil

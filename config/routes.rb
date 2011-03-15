@@ -12,7 +12,7 @@ Rh::Application.routes.draw do
 
   resources :competencias, :except => :index
 
-  resources :projetos, :collection => { :meus_projetos_concluidos => :get}
+  resources :projetos
 
   resources :cargos
 
@@ -28,6 +28,7 @@ Rh::Application.routes.draw do
   get '/pessoas/:id/vinculos_antigos' => "vinculos#old", :as => "old_vinculos"
   get '/pessoa/:id/projetos' => "projetos#meus_projetos", :as => "meus_projetos"
   get '/pessoa/:id/projetos_concluidos' => "projetos#meus_projetos_concluidos", :as => "meus_projetos_concluidos"
+  get '/pessoa/:id/projetos/:id_projeto/participantes' => "projetos#participantes", :as => "participantes_projeto"
 
   get '/admin_home' => "users#home"
   get '/admin_login' => "users#login"

@@ -53,7 +53,14 @@ class ProjetosController < ApplicationController
   end
 
   def meus_projetos
-
+    @projetos = []
+    participacoes = ParticipacaoProjeto.find_all_by_vinculo_id(Vinculo.find_last_by_pessoa_id(current_pessoa.id))
+    participacoes.each do |participacao|
+      projeto = Projeto.find(participacao.projeto_id)
+      if projeto and not projeto.terminado
+        @projetos << projeto
+      end
+    end
   end
 
   def meus_projetos_concluidos

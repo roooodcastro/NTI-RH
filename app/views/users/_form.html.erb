@@ -2,7 +2,7 @@
   <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(@user.errors.count, "erro") %> prohibited this user from being saved:</h2>
 
         <ul>
           <% @user.errors.full_messages.each do |msg| %>
@@ -24,8 +24,9 @@
       <%= f.label :password %><br />
       <%= f.password_field :password %>
     </div>
-    <div class="actions">
+    <div class="actions redirect_buttons">
       <%= f.submit %>
+      <%= link_to "Cancelar", :back %>
     </div>
   <% end %>
 </div>

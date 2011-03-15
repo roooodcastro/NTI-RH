@@ -16,6 +16,9 @@ class VinculosController < ApplicationController
     if params[:id]
       @pessoa = Pessoa.find(params[:id])
       if @pessoa
+        if @pessoa.vinculado
+          redirect_to :back, :alert => "Esta pessoa já está vinculada, não é possível vinculá-la novamente"
+        end
         @nome_pessoa = @pessoa.nome
         @vinculo.pessoa_id = @pessoa.id
       end
@@ -61,9 +64,9 @@ class VinculosController < ApplicationController
   def finalize
     @vinculo = Vinculo.find(params[:id])
     @vinculo.dataSaida = Date.today
-    @vinculo.save
-    pessoa = Pessoa.find params[:vinculo][:pessoa_id]
+    pessoa = Pessoa.find(@vinculo.pessoa_id)
     pessoa.vinculado = false
+    @vinculo.save
     pessoa.save
     respond_to do |format|
       format.html { redirect_to vinculos_path, :notice => 'Pessoa desvinculada com sucesso' }
@@ -71,6 +74,6 @@ class VinculosController < ApplicationController
   end
 
   def old
-
+    @vinculos = Vinculo.find(:all, :conditions => ["pessoa_id = #{current_pessoa.id} AND dataSaida IS NOT NULL"])
   end
 end

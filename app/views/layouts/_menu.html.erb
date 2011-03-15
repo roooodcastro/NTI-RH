@@ -27,14 +27,16 @@
 
     <% if current_pessoa %>
       <li>
-        <%= link_to "Home", admin_home_path %>
+        <%= link_to "Home", home_path %>
       </li>
       <li id="pessoas_item">
         <%= link_to "Meu perfil", "#" %>
       </li>
-      <li id="projetos_item">
-        <%= link_to "Projetos", "#" %>
-      </li>
+      <% if current_pessoa.vinculado %>
+        <li id="projetos_item">
+          <%= link_to "Projetos", "#" %>
+        </li>
+      <% end %>
       <li>
         <%= link_to "Logout", logout_path %>
       </li>
@@ -77,12 +79,14 @@
       </li>
       <% if current_pessoa.vinculado %>
         <li>
-          <%= link_to "Meu vínculo", vinculo_path(current_pessoa) %>
+          <%= link_to "Meu vínculo", vinculo_path(current_vinculo) %>
         </li>
       <% end %>
-      <li>
-        <%= link_to "Vínculos anteriores", old_vinculos_path(current_pessoa) %>
-      </li>
+      <% if pessoa_possui_vinculo_antigo(current_pessoa) %>
+        <li>
+          <%= link_to "Vínculos anteriores", old_vinculos_path(current_pessoa.id) %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

@@ -30,18 +30,27 @@
       <tr class="<%= cycle("even", "odd") %>" >
         <td><%= niveis_de_conhecimento[competencia.grau][0] %></td>
         <td><%= competencia.conhecimento.nome %></td>
-        <td><%= link_to "Remover", competencia, :method => :delete %></td>
+        <% if profile_belongs_to_current_pessoa(@pessoa.id) %>
+          <td><%= link_to "Remover", competencia, :method => :delete %></td>
+        <% end %>
       </tr>
     <% end %>
+    <% if profile_belongs_to_current_pessoa(@pessoa.id) %>
       <tr class="new" >
         <td colspan="3">
           <%= link_to "Clique aqui para adicionar uma nova competência", new_competencia_path(:pessoa_id => @pessoa.id) %>
         </td>
       </tr>
-    </table>
+    <% end %>
+  </table>
 </div>
 <div class="redirect_buttons">
-  <%= link_to "Editar pessoa", edit_pessoa_path(@pessoa) %>
-  <%= link_to "Excluir pessoa", @pessoa, :confirm => "Tem certeza?", :method => :delete %>
-  <%= link_to "Vincular essa pessoa", new_param_vinculo_path(@pessoa) %>
+  <% if profile_belongs_to_current_pessoa(@pessoa.id) %>
+    <%= link_to "Editar cadastro", edit_pessoa_path(@pessoa) %>
+    <%= link_to "Excluir cadastro", @pessoa, :confirm => "Tem certeza?", :method => :delete %>
+  <% end %>
+  <% if current_user %>
+    <%= link_to "Vincular essa pessoa", new_param_vinculo_path(@pessoa) %>
+  <% end %>
+  <%= link_to "Voltar", :back %>
 </div>

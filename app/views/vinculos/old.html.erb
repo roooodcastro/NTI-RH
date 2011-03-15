@@ -1,1 +1,23 @@
-TODO
+<h1>Vínculos antigos</h1>
+
+<table class="data_list" cellpadding="0" cellspacing="0">
+  <tr class="table_head">
+    <td style="width: 30%;">Número do vínculo</td>
+    <td style="width: 25%;">Data de entrada</td>
+    <td style="width: 25%;">Data de saída</td>
+    <td style="width: 20%;">Salário</td>
+  </tr>
+
+  <% @vinculos.each do |vinculo| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td><%= link_to "##{vinculo.id}", vinculo %></td>
+      <td><%= vinculo.dataEntrada.strftime "%d/%m/%Y" %></td>
+      <td><%= vinculo.dataSaida.strftime "%d/%m/%Y" %></td>
+      <td><%= number_to_currency(vinculo.salario, :delimiter => '') %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="redirect_buttons">
+  <%= link_to "Voltar", :back %>
+</div>

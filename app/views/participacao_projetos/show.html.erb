@@ -1,25 +1,40 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
-<p>
-  <b>Datainicio:</b>
-  <%= @participacao_projeto.dataInicio %>
-</p>
+<div class="data_show">
+  <h1><%= "Ficha de participação de #{@participacao_projeto.vinculo.pessoa.nome}" %></h1>
 
-<p>
-  <b>Datatermino:</b>
-  <%= @participacao_projeto.dataTermino %>
-</p>
+  <p>
+    <b>Projeto:</b>
+    <%= @participacao_projeto.projeto.nome %>
+  </p>
+  <p>
+    <b>Data de início:</b>
+    <%= @participacao_projeto.dataInicio.strftime("%d de %B de %Y") %>
+  </p>
+  <p>
+    <b>Data de término:</b>
+    <% if @participacao_projeto.dataTermino %>
+      <%= @participacao_projeto.dataTermino.strftime("%d de %B de %Y") %>
+    <% else %>
+      <%= "#{@participacao_projeto.vinculo.pessoa.nome} ainda está trabalhando no projeto" %>
+    <% end %>
+  </p>
+  <p>
+    <b>Cargo:</b>
+    <%= @participacao_projeto.cargo.nome %>
+  </p>
 
-<p>
-  <b>Vinculo:</b>
-  <%= @participacao_projeto.vinculo_id %>
-</p>
 
-<p>
-  <b>Cargo:</b>
-  <%= @participacao_projeto.cargo_id %>
-</p>
+</div>
+<div class="data_show_child">
+  <h3>Comentários:</h3>
 
-
-<%= link_to 'Edit', edit_participacao_projeto_path(@participacao_projeto) %> |
-<%= link_to 'Back', participacao_projetos_path %>
+  <% @participacao_projeto.comentarios.each do |comentario| %>
+    <div class="comment">
+      <h4><b>Autor: </b><%= comentario.vinculo.pessoa.nome %> | <b>Enviado em: </b><%= comentario.created_at.strftime("%d/%m/%y") %></h4>
+      <p>
+        <%= comentario.texto %>
+      </p>
+    </div>
+  <% end %>
+</div>

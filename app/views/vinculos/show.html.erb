@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
 
 <div class="data_show">
@@ -39,6 +39,9 @@
 </div>
 
 <div class="redirect_buttons">
-  <%= link_to "Desvincular Pessoa", finalize_vinculo_path %>
-  <%= link_to "Editar vínculo", edit_vinculo_path %>
+  <% if current_user %>
+    <%= link_to "Desvincular Pessoa", finalize_vinculo_path %>
+    <%= link_to "Editar vínculo", edit_vinculo_path %>
+  <% end %>
+  <%= link_to "Voltar", :back %>
 </div>
