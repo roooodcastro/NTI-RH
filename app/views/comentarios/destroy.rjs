@@ -1,0 +1,3 @@
+#page.remove "comment_#{@comentario.id.to_s}"
+page.call "removeDeletedComment", "#comment_#{@comentario.id.to_s}"
+page.replace_html :comment_notice, "Comentário removido"

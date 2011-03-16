@@ -20,11 +20,11 @@
     </div>
     <div class="field date">
       <%= f.label "Data de início" %><br />
-      <%= f.date_select :dataInicio %>
+      <%= f.date_select :dataInicio, :order => [:day, :month, :year], :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' }  %>
     </div>
     <div class="field date">
       <%= f.label "Data de término" %><br />
-      <%= f.date_select :dataTermino %>
+      <%= f.date_select :dataTermino, :order => [:day, :month, :year], :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' }  %>
     </div>
     <div class="field select">
       <%= f.label "Pessoa" %><br />

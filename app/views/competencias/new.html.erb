@@ -17,7 +17,7 @@
 
     <div class="field select">
       <%= f.label "Grau de conhecimento" %><br />
-      <%= select("competencia", "grau", niveis_de_conhecimento.collect {|c| [c[0], c[1]]}) %>
+      <%= select("competencia", "grau", niveis_de_conhecimento.collect {|nivel| [nivel[0], nivel[1]]}) %>
     </div>
     <div>
       <%= f.hidden_field :pessoa_id %>

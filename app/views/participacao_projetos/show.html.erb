@@ -28,13 +28,11 @@
 </div>
 <div class="data_show_child">
   <h3>Comentários:</h3>
-
-  <% @participacao_projeto.comentarios.each do |comentario| %>
-    <div class="comment">
-      <h4><b>Autor: </b><%= comentario.vinculo.pessoa.nome %> | <b>Enviado em: </b><%= comentario.created_at.strftime("%d/%m/%y") %></h4>
-      <p>
-        <%= comentario.texto %>
-      </p>
-    </div>
+  <% if current_pessoa %>
+    <%= render :partial => "comentarios/new" %>
   <% end %>
+  <div id="comment_notice"></div>
+  <div id="comments">
+    <%= render :partial => "comentarios/comment", :collection => @comentarios %>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 class ParticipacaoProjetosController < ApplicationController
 
-  before_filter :admin_required, :except => [:show]
+  before_filter :admin_required, :except => [:show, :save_comment]
   before_filter :login_required, :only => [:show]
 
   def index
@@ -9,6 +9,26 @@ class ParticipacaoProjetosController < ApplicationController
 
   def show
     @participacao_projeto = ParticipacaoProjeto.find(params[:id])
+    @comentarios = @participacao_projeto.comentarios.order("created_at DESC")
+    @comentario = Comentario.new
+    if current_pessoa
+      @comentario.autor_id = current_pessoa.id
+    end
+    @comentario.destinatario_id = @participacao_projeto.id
+  end
+
+  def save_comment
+    @comentario = Comentario.new(params[:comentario])
+    if @comentario.texto != ""
+      respond_to do |format|
+        if @comentario.save
+          format.html { redirect_to :back, :notice => "Comentário postado" }
+          format.js {}
+        else
+          format.html { redirect_to :back, :alert => "Erro na criação do comentário" }
+        end
+      end
+    end
   end
 
   def new

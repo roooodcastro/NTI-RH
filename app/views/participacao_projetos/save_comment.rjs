@@ -1,0 +1,4 @@
+page.insert_html :top, :comments, :partial => "comentarios/comment_new", :object => @comentario
+page.replace_html :comment_notice, "Comentário postado!"
+page.call "showCommentNotice", "#comment_#{@comentario.id.to_s}"
+page[:new_comentario].reset

@@ -29,6 +29,7 @@ Rh::Application.routes.draw do
   get '/pessoa/:id/projetos' => "projetos#meus_projetos", :as => "meus_projetos"
   get '/pessoa/:id/projetos_concluidos' => "projetos#meus_projetos_concluidos", :as => "meus_projetos_concluidos"
   get '/pessoa/:id/projetos/:id_projeto/participantes' => "projetos#participantes", :as => "participantes_projeto"
+  post '/projeto/participantes/salvar_comentario' => "participacao_projetos#save_comment", :as => "save_comment"
 
   get '/admin_home' => "users#home"
   get '/admin_login' => "users#login"

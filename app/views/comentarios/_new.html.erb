@@ -1,0 +1,9 @@
+<%= form_for @comentario, :url => { :action => "save_comment" }, :remote => true do |f| %>
+  <div class="comment_box">
+    <%= "Deixe seu comentário sobre a participação de #{@participacao_projeto.vinculo.pessoa.nome} neste projeto:" %><br />
+    <%= f.hidden_field :autor_id %>
+    <%= f.hidden_field :destinatario_id %>
+    <%= f.text_area :texto, :rows => 4, :cols => 80 %><br />
+    <%= f.submit :value => "Postar" %>
+  </div>
+<% end %>

@@ -25,11 +25,11 @@
 
     <div class="field date">
       <%= f.label "Data de entrada:" %><br />
-      <%= f.date_select :dataEntrada, :order => [:day, :month, :year], :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' }, :use_month_numbers => true %>
+      <%= f.date_select :dataEntrada, :order => [:day, :month, :year], :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' } %>
     </div>
     <div class="field date">
       <%= f.label "Data de saída:" %><br/>
-      <%= f.date_select :dataSaida, :order => [:day, :month, :year], :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' }, :use_month_numbers => true %>
+      <%= f.date_select :dataSaida, :order => [:day, :month, :year], :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' } %>
     </div>
     <div class="field">
       <%= f.label "Salário" %><br />

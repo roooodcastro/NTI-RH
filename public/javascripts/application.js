@@ -54,3 +54,13 @@ function menuHorizontal() {
         menuMouseLeave("#outros_item", "#outros_drop");
     });
 }
+
+function showCommentNotice(commentToHighlight) {
+    jQuery("#comment_notice").slideDown(300).css("color", "#4D922F").delay(3000).slideUp(500);
+    jQuery(commentToHighlight).css("background-color", "#E5FFEA");
+}
+
+function removeDeletedComment(commentToDelete) {
+    jQuery(commentToDelete).slideUp(300);
+    jQuery("#comment_notice").slideDown(300).css("color", "#CC4433").delay(2000).slideUp(500);
+}

@@ -463,13 +463,25 @@ div.text textarea {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     text-align: left;
+    margin-bottom: 10px;
 }
-
+.comment a {
+    text-decoration: none;
+    width: auto;
+    display: inline;
+    padding: 0;
+}
+.comment img {
+    margin: 0px;
+    margin-right: 10px;
+    padding: 0px;
+}
 .comment h4 {
     font-weight: normal;
     margin: 0;
     padding: 0;
     border-bottom: 1px solid #AAAAAA;
+    height: 30px;
     background-color: #ECF0D3;
     line-height: 30px;
     padding-left: 20px;
@@ -477,10 +489,21 @@ div.text textarea {
     -moz-border-radius: 6px 6px 0px 0px;
     -webkit-border-radius: 6px 6px 0px 0px;
 }
+.comment p { padding-left: 30px; line-height: 22px; font-size: 12px; min-height: 50px; }
 
-.comment p {
-    padding-left: 30px;
-    line-height: 22px;
-    font-size: 12px;
-    min-height: 50px;
+.comment_box { margin-bottom: 20px; }
+
+#comment_notice {
+    border: 1px solid #AAAAAA;
+    background-color: #ECF0D3;
+    line-height: 24px;
+    border-radius: 12px;
+    height: 26px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    font-weight: bold;
+    display: none;
+    color: #4D922F;
+    margin-bottom: 20px;
+    width: 500px;
 }

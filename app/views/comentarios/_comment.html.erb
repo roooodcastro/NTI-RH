@@ -1,0 +1,11 @@
+<div id="<%= "comment_#{comment.id.to_s}" %>" class="comment">
+  <h4>
+    <% if comentario_is_from_current_pessoa(comment) %>
+      <%= link_to image_tag("delete.png", :size => "16x16", :mouseover => "delete_over.png", :border => 0), comment, :method => :delete, :remote => true %>
+    <% end %>
+    <b>Autor: </b><%= comment.vinculo.pessoa.nome %> | <b>Enviado em: </b><%= comment.created_at.strftime("%d/%m/%y") %>
+  </h4>
+  <p>
+    <%= comment.texto %>
+  </p>
+</div>
