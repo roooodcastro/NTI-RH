@@ -6,6 +6,8 @@ Pessoa1:
   cpf: 12345678901
   celular: 8456-9543
   endereco: Morador de rua
+  email: jose@email.com
+  senha: d5ba17d539ef6984b50d026cf83503f11dd75bb7a09c15cd36694de3786f932d137fa95ea7362cb0ce5f435482b61ffeb81879ee860f9d0130259d44a89c411392aekWM4NzjZUCulUeIDg6vgS156iI9FbQ1aH136lFtYjHBZTrxCoNDQYomW85vG
 
 Pessoa2:
   id: 2
@@ -13,3 +15,5 @@ Pessoa2:
   cpf: 10987654321
   celular: 9452-1545
   endereco: Rua 2
+  email: alejandro@email.com
+  senha: d5ba17d539ef6984b50d026cf83503f11dd75bb7a09c15cd36694de3786f932d137fa95ea7362cb0ce5f435482b61ffeb81879ee860f9d0130259d44a89c411392aekWM4NzjZUCulUeIDg6vgS156iI9FbQ1aH136lFtYjHBZTrxCoNDQYomW85vG

@@ -13,6 +13,9 @@ module NavigationHelpers
       '/'
 
     when /home do usu(?:a|á)rio/
+      '/admin_home'
+
+    when /home da pessoa/
       '/home'
 
     when /p(?:a|á)gina de visualiza(?:c|ç)(?:a|ã)o da pessoa "(.*)"/
@@ -22,8 +25,11 @@ module NavigationHelpers
     when /p(?:a|á)gina de cria(?:c|ç)(?:a|ã)o de (.*)/
       self.send("new_#{$1}_path")
 
-    when /p(?:a|á)gina de login/
+    when /p(?:a|á)gina de login da pessoa/
       '/login'
+
+    when /p(?:a|á)gina de login do admin/
+      '/admin_login'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -2,4 +2,10 @@ Admin:
   id: 1
   nome: Administrador
   email: nti.rhadmin@gmail.com
-  password: 123456
+  password: d5ba17d539ef6984b50d026cf83503f11dd75bb7a09c15cd36694de3786f932d137fa95ea7362cb0ce5f435482b61ffeb81879ee860f9d0130259d44a89c411392aekWM4NzjZUCulUeIDg6vgS156iI9FbQ1aH136lFtYjHBZTrxCoNDQYomW85vG
+
+Usuario:
+  id: 2
+  nome: Usuário
+  email: usuario@rh.com
+  password: d5ba17d539ef6984b50d026cf83503f11dd75bb7a09c15cd36694de3786f932d137fa95ea7362cb0ce5f435482b61ffeb81879ee860f9d0130259d44a89c411392aekWM4NzjZUCulUeIDg6vgS156iI9FbQ1aH136lFtYjHBZTrxCoNDQYomW85vG

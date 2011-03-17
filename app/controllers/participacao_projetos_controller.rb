@@ -12,7 +12,7 @@ class ParticipacaoProjetosController < ApplicationController
     @comentarios = @participacao_projeto.comentarios.order("created_at DESC")
     @comentario = Comentario.new
     if current_pessoa
-      @comentario.autor_id = current_pessoa.id
+      @comentario.autor_id = Vinculo.find_last_by_pessoa_id(current_pessoa.id).id
     end
     @comentario.destinatario_id = @participacao_projeto.id
   end

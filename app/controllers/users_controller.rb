@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new
     unless current_user.email == "nti.rhadmin@gmail.com"
       respond_to do |format|
-        format.html { redirect_to(home_path, :alert => "Você não tem permissão para fazer isso") }
+        format.html { redirect_to(admin_home_path, :alert => "Você não tem permissão para fazer isso") }
       end
     end
   end

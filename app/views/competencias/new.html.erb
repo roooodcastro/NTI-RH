@@ -17,7 +17,7 @@
 
     <div class="field select">
       <%= f.label "Grau de conhecimento" %><br />
-      <%= select("competencia", "grau", niveis_de_conhecimento.collect {|nivel| [nivel[0], nivel[1]]}) %>
+      <%= select("competencia", "grau", niveis_de_conhecimento.collect {|nivel| [nivel[0], nivel[1]]}) :id => "grau" %>
     </div>
     <div>
       <%= f.hidden_field :pessoa_id %>
@@ -27,7 +27,7 @@
       <%= select("competencia", "conhecimento_id", @conhecimentos.collect {|c| [c.nome, c.id]})  %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit :value => "Adicionar" %>
     </div>
   <% end %>
 </div>

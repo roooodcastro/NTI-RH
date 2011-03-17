@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(:version => 20110315165126) do
   create_table "projetos", :force => true do |t|
     t.string   "nome"
     t.date     "data_inicial"
+    t.date     "data_final"
     t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "data_final"
-    t.boolean  "terminado"
+    t.boolean  "terminado",    :default => false
   end
 
   create_table "sessions", :force => true do |t|
